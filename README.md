@@ -1,28 +1,122 @@
+# Neo-Villagers - The lumberjack
 
-Installation information
-=======
+This mod adds the lumberjack villager that trades tree logs and leaves, and axes tiers (iron and diamond with enchantments).
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions at [github](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Workstation
+Woodworking table
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Feature
+The Woodworking table is used to craft wood related blocks in smaller and more precise quantities than crafting, and is more efficient than crafting for certain recipes. It also serves as a lumberjack's job site block.
 
-> **Note**: For Eclipse, use tasks in `Launch Group` instead of ones founds in `Java Application`. A preparation task must run before launching the game. NeoGradle uses launch groups to do these subsequently.
+All of its recipes require just one ingredient and produce a item (in different quantities). It allows skipping steps to craft certain blocks. For example a log can directly turned into fence; crafting normally this product requires multiple steps.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+## Crafting
+Requires two stone pressure plate, one iron ingot and any type of log.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license, if you do not agree with it you can change your mapping names to other crowdsourced names in your 
-build.gradle. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+## Trades
+<table>
+  <tr>
+    <th style="width:10%">Level</th>
+    <th style="width:10%">Item wanted</th><th style="width:10%">Default quantity</th>
+    <th style="width:10%">Item given</th><th style="width:10%">Quantity</th>
+    <th style="width:10%">Number of trades</th><th style="width:10%">XP</th>
+  </tr>
+  <tr>
+    <td rowspan=4>1</td>
+    <td>Oak log</td><td>6</td>
+    <td>Emerald</td><td>1</td>
+    <td>12</td><td>1</td>
+  </tr>
+  <tr>
+    <td>Emerald</td><td>1</td>
+    <td>Oak log</td><td>4</td>
+    <td>12</td><td>1</td>
+  </tr>
+  <tr>
+    <td>Birch log</td><td>6</td>
+    <td>Emerald</td><td>1</td>
+    <td>12</td><td>1</td>
+  </tr>
+  <tr>
+    <td>Emerald</td><td>1</td>
+    <td>Birch log</td><td>4</td>
+    <td>12</td><td>1</td>
+  </tr>
+  <tr>
+    <td rowspan=3>2</td>
+    <td>Oak leaf</td><td>4</td>
+    <td>Emerald</td><td>1</td>
+    <td>12</td><td>4</td>
+  </tr>
+  <tr>
+    <td>Birch leaf</td><td>4</td>
+    <td>Emerald</td><td>1</td>
+    <td>12</td><td>4</td>
+  </tr>
+  <tr>
+    <td>Emerald</td><td>1</td>
+    <td>Wooden axe</td><td>1</td>
+    <td>3</td><td>8</td>
+  </tr>
+  <tr>
+    <td rowspan=4>3</td>
+    <td>Dark oak log</td><td>3</td>
+    <td>Emerald</td><td>1</td>
+    <td>10</td><td>6</td>
+  </tr>
+  <tr>
+    <td>Emerald</td><td>1</td>
+    <td>Dark oak log</td><td>2</td>
+    <td>8</td><td>6</td>
+  </tr>
+  <tr>
+    <td>Dark oak leaf</td><td>4</td>
+    <td>Emerald</td><td>1</td>
+    <td>12</td><td>4</td>
+  </tr>
+  <tr>
+    <td>Emerald</td><td>1</td>
+    <td>Stone axe</td><td>1</td>
+    <td>3</td><td>12</td>
+  </tr>
+  <tr>
+    <td rowspan=3>4</td>
+    <td>Emerald</td><td>9 - 14</td>
+    <td>Enchanted Iron axe</td><td>1</td>
+    <td>3</td><td>10</td>
+  </tr>
+  <tr>
+    <td>Biome dependent common<br>Log</td><td>3</td>
+    <td>Emerald</td><td>1</td>
+    <td>6</td><td>10</td>
+  </tr>
+  <tr>
+    <td>Biome dependent common<br>Leaf</td><td>4</td>
+    <td>Emerald</td><td>1</td>
+    <td>12</td><td>4</td>
+  </tr>
+  <tr>
+    <td rowspan=4>5</td>
+    <td>Emerald</td><td>1</td>
+    <td>Azalea</td><td>6</td>
+    <td>12</td><td>4</td>
+  </tr>
+  <tr>
+    <td>Emerald</td><td>1</td>
+    <td>Cherry log</td><td>1</td>
+    <td>6</td><td>5</td>
+  </tr>
+  <tr>
+    <td>Emeralds</td><td>22 - 37</td>
+    <td>Enchanted Diamond axe</td><td>1</td>
+    <td>3</td><td>15</td>
+  </tr>
+  <tr>
+    <td>Azalea leaf</td><td>4</td>
+    <td>Emerald</td><td>1</td>
+    <td>4</td><td>6</td>
+  </tr>
+</table>
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+> [!NOTE]
+> Based in the type of villagers the tree used will be: Plains -> Cherry, Taiga -> Spruce, Snow -> Spruce, Desert -> Dead brush, Jungle -> Jungle), Savanna -> Acacia, Swamp -> Mangrove.

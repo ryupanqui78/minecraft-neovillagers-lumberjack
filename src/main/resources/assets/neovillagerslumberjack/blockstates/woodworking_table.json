@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "neovillagerslumberjack:block/woodworking_table"
+    },
+    "facing=east": {
+      "model": "neovillagerslumberjack:block/woodworking_table",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "neovillagerslumberjack:block/woodworking_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "neovillagerslumberjack:block/woodworking_table",
+      "y": 270
+    }
+  }
+}
