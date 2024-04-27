@@ -1,2 +1,5 @@
-0.0.2-1.20.4: Fixing issue when broke the table.
-0.0.1-1.20.4: New table: The woodworking table
+0.0.2-1.20.4:
+ - Fixing issue when broke the table.
+ - Adding the lumberjack villager, this villager uses the woodworking table as job's site.
+0.0.1-1.20.4:
+ - New table: The woodworking table

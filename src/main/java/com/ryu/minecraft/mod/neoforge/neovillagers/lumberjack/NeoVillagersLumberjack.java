@@ -1,6 +1,7 @@
 package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack;
 
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupBlocks;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupVillagers;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
@@ -15,6 +16,8 @@ public class NeoVillagersLumberjack {
     public NeoVillagersLumberjack(IEventBus modEventBus) {
         SetupBlocks.ITEMS.register(modEventBus);
         SetupBlocks.BLOCKS.register(modEventBus);
+        
+        SetupVillagers.register(modEventBus);
         
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

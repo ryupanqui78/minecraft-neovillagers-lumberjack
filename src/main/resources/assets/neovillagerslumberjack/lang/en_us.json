@@ -1,3 +1,5 @@
 {
-  "block.neovillagerslumberjack.woodworking_table": "Woodworking table"
+  "block.neovillagerslumberjack.woodworking_table": "Woodworking table",
+  
+  "entity.minecraft.villager.neovillagerslumberjack.lumberjack": "Lumberjack"
 }
