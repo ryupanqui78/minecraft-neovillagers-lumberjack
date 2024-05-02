@@ -1,3 +1,5 @@
+0.0.3-1.20.4:
+ - Adding feature to Woodworking table, now is almost the same than stonecutter.
 0.0.2-1.20.4:
  - Fixing issue when broke the table.
  - Adding the lumberjack villager, this villager uses the woodworking table as job's site.
