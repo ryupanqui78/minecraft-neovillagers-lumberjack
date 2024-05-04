@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "bark",
+  "ingredient": {
+    "item": "minecraft:spruce_log"
+  },
+  "result": "minecraft:stripped_spruce_wood",
+  "count": 1
+}

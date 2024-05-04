@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_pressure_plate",
+  "ingredient": {
+    "item": "minecraft:stripped_warped_hyphae"
+  },
+  "result": "minecraft:warped_pressure_plate",
+  "count": 4
+}

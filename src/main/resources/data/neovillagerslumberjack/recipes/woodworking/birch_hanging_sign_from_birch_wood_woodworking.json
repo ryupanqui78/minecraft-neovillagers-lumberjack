@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_sign",
+  "ingredient": {
+    "item": "minecraft:birch_wood"
+  },
+  "result": "minecraft:birch_hanging_sign",
+  "count": 1
+}

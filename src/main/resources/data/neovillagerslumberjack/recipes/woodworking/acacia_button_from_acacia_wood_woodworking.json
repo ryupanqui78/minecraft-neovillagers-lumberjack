@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "button",
+  "ingredient": {
+    "item": "minecraft:acacia_wood"
+  },
+  "result": "minecraft:acacia_button",
+  "count": 8
+}

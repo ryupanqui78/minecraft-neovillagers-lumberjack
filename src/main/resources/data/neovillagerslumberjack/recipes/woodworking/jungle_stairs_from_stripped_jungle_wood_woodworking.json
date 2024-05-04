@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_stairs",
+  "ingredient": {
+    "item": "minecraft:stripped_jungle_wood"
+  },
+  "result": "minecraft:jungle_stairs",
+  "count": 6
+}

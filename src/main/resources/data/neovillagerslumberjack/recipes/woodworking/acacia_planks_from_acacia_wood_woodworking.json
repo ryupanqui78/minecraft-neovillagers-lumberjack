@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "planks",
+  "ingredient": {
+    "item": "minecraft:acacia_wood"
+  },
+  "result": "minecraft:acacia_planks",
+  "count": 4
+}

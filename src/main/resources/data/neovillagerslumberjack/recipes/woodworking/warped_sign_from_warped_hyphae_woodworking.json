@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_sign",
+  "ingredient": {
+    "item": "minecraft:warped_hyphae"
+  },
+  "result": "minecraft:warped_sign",
+  "count": 2
+}

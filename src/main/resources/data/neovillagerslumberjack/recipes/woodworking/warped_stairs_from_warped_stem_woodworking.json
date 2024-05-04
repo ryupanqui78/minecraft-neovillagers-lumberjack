@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_stairs",
+  "ingredient": {
+    "item": "minecraft:warped_stem"
+  },
+  "result": "minecraft:warped_stairs",
+  "count": 6
+}

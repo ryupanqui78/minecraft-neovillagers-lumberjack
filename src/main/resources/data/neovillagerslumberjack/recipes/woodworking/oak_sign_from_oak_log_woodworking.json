@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_sign",
+  "ingredient": {
+    "item": "minecraft:oak_log"
+  },
+  "result": "minecraft:oak_sign",
+  "count": 2
+}

@@ -13,12 +13,12 @@ public class SetupBlocks {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(NeoVillagersLumberjack.MODID);
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(NeoVillagersLumberjack.MODID);
     
-    public static final DeferredBlock<WoodWorkingBlock> WOODWORKING_TABLE = BLOCKS.registerBlock(
+    public static final DeferredBlock<WoodWorkingBlock> WOODWORKING_TABLE = SetupBlocks.BLOCKS.registerBlock(
             WoodWorkingBlock.BLOCK_NAME, WoodWorkingBlock::new,
             BlockBehaviour.Properties.of().strength(1.5f).requiresCorrectToolForDrops());
     
-    public static final DeferredItem<BlockItem> WOODWORKING_TABLE_ITEM = ITEMS
-            .registerSimpleBlockItem(WOODWORKING_TABLE);
+    public static final DeferredItem<BlockItem> WOODWORKING_TABLE_ITEM = SetupBlocks.ITEMS
+            .registerSimpleBlockItem(SetupBlocks.WOODWORKING_TABLE);
     
     private SetupBlocks() {
     }

@@ -3,6 +3,8 @@ package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupBlockEntity;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupBlocks;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupMenus;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupRecipeSerializer;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupRecipeType;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupVillagers;
 
 import net.minecraft.world.item.CreativeModeTabs;
@@ -23,6 +25,9 @@ public class NeoVillagersLumberjack {
         SetupMenus.MENUS.register(modEventBus);
         
         SetupVillagers.register(modEventBus);
+        
+        SetupRecipeType.REGISTER.register(modEventBus);
+        SetupRecipeSerializer.REGISTER.register(modEventBus);
         
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

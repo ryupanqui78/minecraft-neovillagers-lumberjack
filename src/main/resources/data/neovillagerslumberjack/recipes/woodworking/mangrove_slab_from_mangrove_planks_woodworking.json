@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_slab",
+  "ingredient": {
+    "item": "minecraft:mangrove_planks"
+  },
+  "result": "minecraft:mangrove_slab",
+  "count": 2
+}

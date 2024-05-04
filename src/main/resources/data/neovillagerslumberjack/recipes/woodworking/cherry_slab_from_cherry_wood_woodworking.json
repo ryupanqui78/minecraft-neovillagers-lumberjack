@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_slab",
+  "ingredient": {
+    "item": "minecraft:cherry_wood"
+  },
+  "result": "minecraft:cherry_slab",
+  "count": 8
+}

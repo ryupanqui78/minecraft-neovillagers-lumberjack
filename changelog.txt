@@ -1,3 +1,5 @@
+0.0.4-1.20.4:
+ - Adding recipe for Woodworking table.
 0.0.3-1.20.4:
  - Adding feature to Woodworking table, now is almost the same than stonecutter.
 0.0.2-1.20.4:

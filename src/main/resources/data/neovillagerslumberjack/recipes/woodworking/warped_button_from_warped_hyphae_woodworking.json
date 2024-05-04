@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "button",
+  "ingredient": {
+    "item": "minecraft:warped_hyphae"
+  },
+  "result": "minecraft:warped_button",
+  "count": 8
+}

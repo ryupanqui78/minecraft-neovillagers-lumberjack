@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "button",
+  "ingredient": {
+    "item": "minecraft:mangrove_planks"
+  },
+  "result": "minecraft:mangrove_button",
+  "count": 1
+}

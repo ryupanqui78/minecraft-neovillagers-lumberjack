@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "button",
+  "ingredient": {
+    "item": "minecraft:oak_log"
+  },
+  "result": "minecraft:oak_button",
+  "count": 8
+}

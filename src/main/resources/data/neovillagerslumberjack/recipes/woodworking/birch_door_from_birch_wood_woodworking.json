@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_door",
+  "ingredient": {
+    "item": "minecraft:birch_wood"
+  },
+  "result": "minecraft:birch_door",
+  "count": 2
+}

@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_door",
+  "ingredient": {
+    "item": "minecraft:stripped_mangrove_log"
+  },
+  "result": "minecraft:mangrove_door",
+  "count": 2
+}

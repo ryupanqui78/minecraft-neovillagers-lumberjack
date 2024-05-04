@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_door",
+  "ingredient": {
+    "item": "minecraft:acacia_wood"
+  },
+  "result": "minecraft:acacia_door",
+  "count": 2
+}

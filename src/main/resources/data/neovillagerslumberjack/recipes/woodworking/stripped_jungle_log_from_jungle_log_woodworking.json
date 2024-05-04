@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wood",
+  "ingredient": {
+    "item": "minecraft:jungle_log"
+  },
+  "result": "stripped_jungle_log",
+  "count": 1
+}

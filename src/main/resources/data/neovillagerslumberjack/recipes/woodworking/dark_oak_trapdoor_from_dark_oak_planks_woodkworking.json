@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_trapdoor",
+  "ingredient": {
+    "item": "minecraft:dark_oak_planks"
+  },
+  "result": "minecraft:dark_oak_trapdoor",
+  "count": 1
+}

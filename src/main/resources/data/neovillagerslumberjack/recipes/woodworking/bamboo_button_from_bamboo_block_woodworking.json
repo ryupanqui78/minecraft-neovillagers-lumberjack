@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "button",
+  "ingredient": {
+    "item": "minecraft:bamboo_block"
+  },
+  "result": "minecraft:bamboo_button",
+  "count": 4
+}

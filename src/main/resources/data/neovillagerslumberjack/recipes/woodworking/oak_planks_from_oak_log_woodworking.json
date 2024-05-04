@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "planks",
+  "ingredient": {
+    "item": "minecraft:oak_log"
+  },
+  "result": "minecraft:oak_planks",
+  "count": 4
+}

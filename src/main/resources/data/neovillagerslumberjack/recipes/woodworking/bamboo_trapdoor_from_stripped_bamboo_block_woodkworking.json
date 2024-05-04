@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_trapdoor",
+  "ingredient": {
+    "item": "minecraft:stripped_bamboo_block"
+  },
+  "result": "minecraft:bamboo_trapdoor",
+  "count": 2
+}

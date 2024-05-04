@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_sign",
+  "ingredient": {
+    "item": "minecraft:stripped_spruce_log"
+  },
+  "result": "minecraft:spruce_sign",
+  "count": 2
+}

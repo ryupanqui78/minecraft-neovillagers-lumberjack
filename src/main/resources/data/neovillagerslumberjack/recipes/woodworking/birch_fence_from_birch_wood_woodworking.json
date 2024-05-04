@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_fence",
+  "ingredient": {
+    "item": "minecraft:birch_wood"
+  },
+  "result": "minecraft:birch_fence",
+  "count": 2
+}

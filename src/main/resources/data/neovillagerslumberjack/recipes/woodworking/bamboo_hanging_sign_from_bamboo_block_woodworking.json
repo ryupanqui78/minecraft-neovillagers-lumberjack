@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_sign",
+  "ingredient": {
+    "item": "minecraft:bamboo_block"
+  },
+  "result": "minecraft:bamboo_hanging_sign",
+  "count": 1
+}

@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_sign",
+  "ingredient": {
+    "item": "minecraft:crimson_stem"
+  },
+  "result": "minecraft:crimson_hanging_sign",
+  "count": 1
+}

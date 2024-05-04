@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_slab",
+  "ingredient": {
+    "item": "minecraft:dark_oak_wood"
+  },
+  "result": "minecraft:dark_oak_slab",
+  "count": 8
+}

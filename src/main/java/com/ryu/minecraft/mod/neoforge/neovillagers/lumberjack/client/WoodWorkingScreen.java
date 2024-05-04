@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.NeoVillagersLumberjack;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.inventory.WoodWorkingMenu;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.item.crafting.WoodWorkingRecipe;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -15,7 +16,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
@@ -79,10 +79,10 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
             
             for (int l = this.startIndex; l < k; ++l) {
                 final int i1 = l - this.startIndex;
-                final double d0 = pMouseX
-                        - (i + ((i1 % WoodWorkingScreen.RECIPES_COLUMNS) * WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH));
-                final double d1 = pMouseY - (j + ((i1 / (double) WoodWorkingScreen.RECIPES_COLUMNS)
-                        * WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT));
+                final int carryX = i1 % WoodWorkingScreen.RECIPES_COLUMNS;
+                final int carryY = i1 / WoodWorkingScreen.RECIPES_COLUMNS;
+                final double d0 = pMouseX - (i + (carryX * WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH));
+                final double d1 = pMouseY - (j + (carryY * WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT));
                 if ((d0 >= 0.0) && (d1 >= 0.0) && (d0 < WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH)
                         && (d1 < WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT)
                         && this.menu.clickMenuButton(this.minecraft.player, l)) {
@@ -177,7 +177,7 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
     }
     
     private void renderRecipes(GuiGraphics pGuiGraphics, int pX, int pY, int pStartIndex) {
-        final List<RecipeHolder<StonecutterRecipe>> list = this.menu.getRecipes();
+        final List<RecipeHolder<WoodWorkingRecipe>> list = this.menu.getRecipes();
         
         for (int i = this.startIndex; (i < pStartIndex) && (i < this.menu.getNumRecipes()); ++i) {
             final int j = i - this.startIndex;
@@ -195,7 +195,7 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
             final int i = this.leftPos + WoodWorkingScreen.RECIPES_X;
             final int j = this.topPos + WoodWorkingScreen.RECIPES_Y;
             final int k = this.startIndex + WoodWorkingScreen.SCROLLER_WIDTH;
-            final List<RecipeHolder<StonecutterRecipe>> list = this.menu.getRecipes();
+            final List<RecipeHolder<WoodWorkingRecipe>> list = this.menu.getRecipes();
             
             for (int l = this.startIndex; (l < k) && (l < this.menu.getNumRecipes()); ++l) {
                 final int i1 = l - this.startIndex;

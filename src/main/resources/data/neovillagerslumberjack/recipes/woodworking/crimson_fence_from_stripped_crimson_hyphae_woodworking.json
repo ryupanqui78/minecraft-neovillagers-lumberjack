@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_fence",
+  "ingredient": {
+    "item": "minecraft:stripped_crimson_hyphae"
+  },
+  "result": "minecraft:crimson_fence",
+  "count": 2
+}

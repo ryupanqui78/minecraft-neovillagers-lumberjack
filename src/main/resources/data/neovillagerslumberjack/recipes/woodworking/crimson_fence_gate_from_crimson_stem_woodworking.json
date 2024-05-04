@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_fence_gate",
+  "ingredient": {
+    "item": "minecraft:crimson_stem"
+  },
+  "result": "minecraft:crimson_fence_gate",
+  "count": 1
+}
