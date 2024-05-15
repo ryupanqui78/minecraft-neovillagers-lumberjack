@@ -1,3 +1,5 @@
+1.0.4-1.20.4:
+ - Release first version
 0.0.4-1.20.4:
  - Adding recipe for Woodworking table.
 0.0.3-1.20.4:
