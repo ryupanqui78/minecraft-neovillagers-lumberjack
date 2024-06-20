@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:cherry_planks"
   },
-  "result": "minecraft:cherry_trapdoor",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:cherry_trapdoor"
+  }
 }

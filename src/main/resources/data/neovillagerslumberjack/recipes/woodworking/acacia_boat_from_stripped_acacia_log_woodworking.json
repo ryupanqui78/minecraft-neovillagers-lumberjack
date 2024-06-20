@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:stripped_acacia_log"
   },
-  "result": "minecraft:acacia_boat",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:acacia_boat"
+  }
 }

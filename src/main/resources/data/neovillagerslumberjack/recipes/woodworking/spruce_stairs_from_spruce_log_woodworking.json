@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:spruce_log"
   },
-  "result": "minecraft:spruce_stairs",
-  "count": 6
+  "result": {
+    "count": 6,
+    "id": "minecraft:spruce_stairs"
+  }
 }

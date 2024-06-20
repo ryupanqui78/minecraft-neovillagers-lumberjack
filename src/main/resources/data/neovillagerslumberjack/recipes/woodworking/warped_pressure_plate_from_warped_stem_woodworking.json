@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:warped_stem"
   },
-  "result": "minecraft:warped_pressure_plate",
-  "count": 4
+  "result": {
+    "count": 4,
+    "id": "minecraft:warped_pressure_plate"
+  }
 }

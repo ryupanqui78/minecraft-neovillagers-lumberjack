@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:warped_hyphae"
   },
-  "result": "minecraft:warped_button",
-  "count": 8
+  "result": {
+    "count": 8,
+    "id": "minecraft:warped_button"
+  }
 }

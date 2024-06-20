@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:warped_stem"
   },
-  "result": "minecraft:warped_slab",
-  "count": 8
+  "result": {
+    "count": 8,
+    "id": "minecraft:warped_slab"
+  }
 }

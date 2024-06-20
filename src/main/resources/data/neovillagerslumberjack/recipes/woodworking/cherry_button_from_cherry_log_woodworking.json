@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:cherry_log"
   },
-  "result": "minecraft:cherry_button",
-  "count": 8
+  "result": {
+    "count": 8,
+    "id": "minecraft:cherry_button"
+  }
 }

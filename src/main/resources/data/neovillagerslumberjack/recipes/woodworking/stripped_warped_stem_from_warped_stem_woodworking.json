@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:warped_stem"
   },
-  "result": "minecraft:stripped_warped_stem",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:stripped_warped_stem"
+  }
 }

@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:crimson_stem"
   },
-  "result": "minecraft:crimson_hanging_sign",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:crimson_hanging_sign"
+  }
 }

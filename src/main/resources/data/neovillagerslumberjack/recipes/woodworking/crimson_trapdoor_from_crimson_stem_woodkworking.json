@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:crimson_stem"
   },
-  "result": "minecraft:crimson_trapdoor",
-  "count": 4
+  "result": {
+    "count": 4,
+    "id": "minecraft:crimson_trapdoor"
+  }
 }

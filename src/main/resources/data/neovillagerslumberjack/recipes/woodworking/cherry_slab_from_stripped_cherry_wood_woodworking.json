@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:stripped_cherry_wood"
   },
-  "result": "minecraft:cherry_slab",
-  "count": 8
+  "result": {
+    "count": 8,
+    "id": "minecraft:cherry_slab"
+  }
 }
