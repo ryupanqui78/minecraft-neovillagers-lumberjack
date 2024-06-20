@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:cherry_wood"
   },
-  "result": "minecraft:cherry_hanging_sign",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:cherry_hanging_sign"
+  }
 }

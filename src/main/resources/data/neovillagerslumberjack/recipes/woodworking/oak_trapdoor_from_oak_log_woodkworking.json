@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:oak_log"
   },
-  "result": "minecraft:oak_trapdoor",
-  "count": 4
+  "result": {
+    "count": 4,
+    "id": "minecraft:oak_trapdoor"
+  }
 }

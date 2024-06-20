@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:birch_planks"
   },
-  "result": "minecraft:birch_pressure_plate",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:birch_pressure_plate"
+  }
 }

@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:jungle_log"
   },
-  "result": "minecraft:jungle_button",
-  "count": 8
+  "result": {
+    "count": 8,
+    "id": "minecraft:jungle_button"
+  }
 }

@@ -6,10 +6,12 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.ItemLike;
 
 public class EmeraldForItemTradeOffer implements VillagerTrades.ItemListing {
+    
     private final Item item;
     private final int cost;
     private final int maxUses;
@@ -26,7 +28,7 @@ public class EmeraldForItemTradeOffer implements VillagerTrades.ItemListing {
     
     @Override
     public MerchantOffer getOffer(Entity pTrader, RandomSource pRandom) {
-        final ItemStack itemstack = new ItemStack(this.item, this.cost);
+        final ItemCost itemstack = new ItemCost(this.item, this.cost);
         return new MerchantOffer(itemstack, new ItemStack(Items.EMERALD), this.maxUses, this.villagerXp,
                 this.priceMultiplier);
     }

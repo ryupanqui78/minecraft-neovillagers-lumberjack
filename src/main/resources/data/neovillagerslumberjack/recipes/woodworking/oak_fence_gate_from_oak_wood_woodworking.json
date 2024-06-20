@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:oak_wood"
   },
-  "result": "minecraft:oak_fence_gate",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_fence_gate"
+  }
 }

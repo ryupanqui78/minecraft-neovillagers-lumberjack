@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:crimson_hyphae"
   },
-  "result": "minecraft:crimson_stairs",
-  "count": 6
+  "result": {
+    "count": 6,
+    "id": "minecraft:crimson_stairs"
+  }
 }

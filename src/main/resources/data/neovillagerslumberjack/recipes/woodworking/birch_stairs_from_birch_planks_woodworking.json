@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:birch_planks"
   },
-  "result": "minecraft:birch_stairs",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:birch_stairs"
+  }
 }

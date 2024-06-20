@@ -15,7 +15,7 @@ public class SetupRecipeSerializer {
             .create(Registries.RECIPE_SERIALIZER, NeoVillagersLumberjack.MODID);
     
     public static final DeferredHolder<RecipeSerializer<?>, WoodWorkingSerialize> WOODWORKING = SetupRecipeSerializer.REGISTER
-            .register(WoodWorkingRecipe.RECIPE_NAME, WoodWorkingSerialize::new);
+            .register(WoodWorkingRecipe.RECIPE_NAME, () -> new WoodWorkingSerialize(WoodWorkingRecipe::new));
     
     private SetupRecipeSerializer() {
     }

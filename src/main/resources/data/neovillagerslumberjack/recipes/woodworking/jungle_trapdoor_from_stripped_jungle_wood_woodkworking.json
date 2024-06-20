@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:stripped_jungle_wood"
   },
-  "result": "minecraft:jungle_trapdoor",
-  "count": 4
+  "result": {
+    "count": 4,
+    "id": "minecraft:jungle_trapdoor"
+  }
 }

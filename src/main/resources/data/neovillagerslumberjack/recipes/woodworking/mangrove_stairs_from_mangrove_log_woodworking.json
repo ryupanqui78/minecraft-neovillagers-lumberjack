@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:mangrove_log"
   },
-  "result": "minecraft:mangrove_stairs",
-  "count": 6
+  "result": {
+    "count": 6,
+    "id": "minecraft:mangrove_stairs"
+  }
 }

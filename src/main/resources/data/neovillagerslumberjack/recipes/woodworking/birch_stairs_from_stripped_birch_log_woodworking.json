@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:stripped_birch_log"
   },
-  "result": "minecraft:birch_stairs",
-  "count": 6
+  "result": {
+    "count": 6,
+    "id": "minecraft:birch_stairs"
+  }
 }

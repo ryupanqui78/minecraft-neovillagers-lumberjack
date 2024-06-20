@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:birch_wood"
   },
-  "result": "minecraft:birch_fence_gate",
-  "count": 1
+  "result": {
+    "count": 1,
+    "id": "minecraft:birch_fence_gate"
+  }
 }

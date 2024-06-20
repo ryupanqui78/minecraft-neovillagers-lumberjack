@@ -1,0 +1,11 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "bark",
+  "ingredient": {
+    "item": "minecraft:oak_wood"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:stripped_oak_wood"
+  }
+}

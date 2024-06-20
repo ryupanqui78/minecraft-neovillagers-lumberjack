@@ -8,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
@@ -33,15 +32,14 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class WoodWorkingBlock extends BaseEntityBlock {
     
     public static final String BLOCK_NAME = "woodworking_table";
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final MapCodec<WoodWorkingBlock> CODEC = BlockBehaviour.simpleCodec(WoodWorkingBlock::new);
-    
-    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 9.0D, 16.0D);
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     
     private static final Component CONTAINER_TITLE = Component.translatable("screen.container.woodworking");
+    private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 9.0D, 16.0D);
     
-    public WoodWorkingBlock(Properties properties) {
-        super(properties);
+    public WoodWorkingBlock(Properties pProperties) {
+        super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(WoodWorkingBlock.FACING, Direction.NORTH));
     }
     
@@ -51,30 +49,30 @@ public class WoodWorkingBlock extends BaseEntityBlock {
     }
     
     @Override
-    protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-        builder.add(WoodWorkingBlock.FACING);
+    protected void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(WoodWorkingBlock.FACING);
     }
     
     @Override
-    public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
+    protected MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
         return new SimpleMenuProvider((pContainerId, playerInv, pAccess) -> new WoodWorkingMenu(pContainerId, playerInv,
                 ContainerLevelAccess.create(pLevel, pPos)), WoodWorkingBlock.CONTAINER_TITLE);
     }
     
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    protected RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
     
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    protected VoxelShape getShape(BlockState pState, BlockGetter getter, BlockPos pPos, CollisionContext pContext) {
         return WoodWorkingBlock.SHAPE;
     }
     
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(WoodWorkingBlock.FACING,
-                context.getHorizontalDirection().getOpposite());
+                pContext.getHorizontalDirection().getOpposite());
     }
     
     @Override
@@ -83,10 +81,9 @@ public class WoodWorkingBlock extends BaseEntityBlock {
     }
     
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide && (pPlayer instanceof ServerPlayer)) {
-            pPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
-            return InteractionResult.CONSUME;
+    protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        if (!pLevel.isClientSide && (pPlayer instanceof final ServerPlayer serverPlayer)) {
+            serverPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
         }
         return InteractionResult.sidedSuccess(pLevel.isClientSide);
     }

@@ -4,6 +4,8 @@
   "ingredient": {
     "item": "minecraft:bamboo_block"
   },
-  "result": "minecraft:bamboo_stairs",
-  "count": 4
+  "result": {
+    "count": 4,
+    "id": "minecraft:bamboo_stairs"
+  }
 }
