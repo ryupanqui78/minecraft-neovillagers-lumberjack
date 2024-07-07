@@ -14,7 +14,11 @@ import net.minecraft.world.item.crafting.SingleItemRecipe;
 
 public class WoodWorkingSerialize implements RecipeSerializer<WoodWorkingRecipe> {
     
-    final SingleItemRecipe.Factory<WoodWorkingRecipe> factory;
+    private static final String ELEMENT_INGREDIENT = "ingredient";
+    private static final String ELEMENT_GROUP = "group";
+    private static final String ELEMENT_RESULT = "result";
+    
+    protected final SingleItemRecipe.Factory<WoodWorkingRecipe> factory;
     
     public WoodWorkingSerialize(SingleItemRecipe.Factory<WoodWorkingRecipe> pFactory) {
         this.factory = pFactory;
@@ -23,12 +27,15 @@ public class WoodWorkingSerialize implements RecipeSerializer<WoodWorkingRecipe>
     @Override
     public MapCodec<WoodWorkingRecipe> codec() {
         return RecordCodecBuilder
-                .mapCodec(elements -> elements
-                        .group(Codec.STRING.optionalFieldOf("group", "").forGetter(WoodWorkingRecipe::getGroup),
-                                Ingredient.CODEC_NONEMPTY.fieldOf("ingredient")
-                                        .forGetter(WoodWorkingRecipe::getIngredient),
-                                ItemStack.STRICT_CODEC.fieldOf("result").forGetter(WoodWorkingRecipe::getResult))
-                        .apply(elements, this.factory::create));
+                .mapCodec(
+                        elements -> elements
+                                .group(Codec.STRING.optionalFieldOf(WoodWorkingSerialize.ELEMENT_GROUP, "")
+                                        .forGetter(WoodWorkingRecipe::getGroup),
+                                        Ingredient.CODEC_NONEMPTY.fieldOf(WoodWorkingSerialize.ELEMENT_INGREDIENT)
+                                                .forGetter(WoodWorkingRecipe::getIngredient),
+                                        ItemStack.STRICT_CODEC.fieldOf(WoodWorkingSerialize.ELEMENT_RESULT)
+                                                .forGetter(WoodWorkingRecipe::getResult))
+                                .apply(elements, this.factory::create));
     }
     
     @Override

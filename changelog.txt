@@ -1,3 +1,6 @@
+1.1.6-1.20.6:
+ - Fixing minor changes
+ - Release update to 1.20.6
 1.0.5-1.20.6:
  - Updating for 1.20.6 minecraft version.
  - Fixing the recipes of woodworking.
