@@ -1,12 +1,13 @@
 1.1.6-1.20.6:
- - Fixing minor changes
- - Fixing issue with recipe
- - Release update to 1.20.6
+ - Fixing minor changes.
+ - Fixing issue with recipe.
+ - Reducing code.
+ - Release update to 1.20.6.
 1.0.5-1.20.6:
  - Updating for 1.20.6 minecraft version.
  - Fixing the recipes of woodworking.
 1.0.4-1.20.4:
- - Release first version
+ - Release first version.
 0.0.4-1.20.4:
  - Adding recipe for Woodworking table.
 0.0.3-1.20.4:
@@ -15,4 +16,4 @@
  - Fixing issue when broke the table.
  - Adding the lumberjack villager, this villager uses the woodworking table as job's site.
 0.0.1-1.20.4:
- - New table: The woodworking table
+ - New table: The woodworking table.
