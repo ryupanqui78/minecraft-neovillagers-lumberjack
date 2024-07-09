@@ -1,6 +1,5 @@
 package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack;
 
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupBlockEntity;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupBlocks;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupGeneralEvents;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupMenus;
@@ -24,7 +23,6 @@ public class NeoVillagersLumberjack {
         SetupBlocks.BLOCKS.register(modEventBus);
         SetupBlocks.ITEMS.register(modEventBus);
         
-        SetupBlockEntity.BLOCK_ENTITIES.register(modEventBus);
         SetupMenus.MENUS.register(modEventBus);
         
         NeoForge.EVENT_BUS.register(SetupGeneralEvents.class);

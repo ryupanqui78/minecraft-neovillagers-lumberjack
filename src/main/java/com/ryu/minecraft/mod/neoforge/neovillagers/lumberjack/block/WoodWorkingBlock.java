@@ -1,7 +1,6 @@
 package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.block;
 
 import com.mojang.serialization.MapCodec;
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.entity.WoodWorkingBlockEntity;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.inventory.WoodWorkingMenu;
 
 import net.minecraft.core.BlockPos;
@@ -16,11 +15,9 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
@@ -29,7 +26,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class WoodWorkingBlock extends BaseEntityBlock {
+public class WoodWorkingBlock extends Block {
     
     public static final String BLOCK_NAME = "woodworking_table";
     public static final MapCodec<WoodWorkingBlock> CODEC = BlockBehaviour.simpleCodec(WoodWorkingBlock::new);
@@ -44,7 +41,7 @@ public class WoodWorkingBlock extends BaseEntityBlock {
     }
     
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
+    protected MapCodec<WoodWorkingBlock> codec() {
         return WoodWorkingBlock.CODEC;
     }
     
@@ -73,11 +70,6 @@ public class WoodWorkingBlock extends BaseEntityBlock {
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(WoodWorkingBlock.FACING,
                 pContext.getHorizontalDirection().getOpposite());
-    }
-    
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new WoodWorkingBlockEntity(pPos, pState);
     }
     
     @Override
