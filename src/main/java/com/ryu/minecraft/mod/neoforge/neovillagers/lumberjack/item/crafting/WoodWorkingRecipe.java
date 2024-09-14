@@ -4,11 +4,11 @@ import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupBlocks;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupRecipeSerializer;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupRecipeType;
 
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleItemRecipe;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 
 public class WoodWorkingRecipe extends SingleItemRecipe {
@@ -43,8 +43,8 @@ public class WoodWorkingRecipe extends SingleItemRecipe {
     }
     
     @Override
-    public boolean matches(Container pContainer, Level pLevel) {
-        return this.ingredient.test(pContainer.getItem(0));
+    public boolean matches(SingleRecipeInput input, Level level) {
+        return this.ingredient.test(input.item());
     }
     
 }

@@ -1,11 +1,18 @@
 package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades;
 
+import java.util.Optional;
+
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
@@ -27,13 +34,15 @@ public class EnchantedItemForEmeraldsTradeOffer implements VillagerTrades.ItemLi
     }
     
     @Override
-    public MerchantOffer getOffer(Entity pTrader, RandomSource source) {
-        final int i = 5 + source.nextInt(15);
-        final ItemStack itemstack = EnchantmentHelper.enchantItem(pTrader.level().enabledFeatures(), source,
-                new ItemStack(this.itemSell.getItem()), i, false);
-        final int j = Math.min(this.baseEmeraldCost + i, 64);
-        final ItemCost itemstack1 = new ItemCost(Items.EMERALD, j);
-        return new MerchantOffer(itemstack1, itemstack, this.maxUses, this.villagerXp, this.priceMultiplier);
+    public MerchantOffer getOffer(Entity trader, RandomSource random) {
+        int i = 5 + random.nextInt(15);
+        RegistryAccess registryaccess = trader.level().registryAccess();
+        Optional<HolderSet.Named<Enchantment>> optional = registryaccess.registryOrThrow(Registries.ENCHANTMENT)
+                .getTag(EnchantmentTags.ON_TRADED_EQUIPMENT);
+        ItemStack itemstack = EnchantmentHelper.enchantItem(random, new ItemStack(this.itemSell.getItem()), i,
+                registryaccess, optional);
+        int j = Math.min(this.baseEmeraldCost + i, 64);
+        ItemCost itemcost = new ItemCost(Items.EMERALD, j);
+        return new MerchantOffer(itemcost, itemstack, this.maxUses, this.villagerXp, this.priceMultiplier);
     }
-    
 }

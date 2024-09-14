@@ -22,15 +22,17 @@ import net.neoforged.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> {
     
-    private static final ResourceLocation SCROLLER_SPRITE = new ResourceLocation("container/stonecutter/scroller");
-    private static final ResourceLocation SCROLLER_DISABLED_SPRITE = new ResourceLocation(
-            "container/stonecutter/scroller_disabled");
-    private static final ResourceLocation RECIPE_SELECTED_SPRITE = new ResourceLocation(
-            "container/stonecutter/recipe_selected");
-    private static final ResourceLocation RECIPE_HIGHLIGHTED_SPRITE = new ResourceLocation(
-            "container/stonecutter/recipe_highlighted");
-    private static final ResourceLocation RECIPE_SPRITE = new ResourceLocation("container/stonecutter/recipe");
-    private static final ResourceLocation TEXTURE = new ResourceLocation(NeoVillagersLumberjack.MODID,
+    private static final ResourceLocation SCROLLER_SPRITE = ResourceLocation
+            .withDefaultNamespace("container/stonecutter/scroller");
+    private static final ResourceLocation SCROLLER_DISABLED_SPRITE = ResourceLocation
+            .withDefaultNamespace("container/stonecutter/scroller_disabled");
+    private static final ResourceLocation RECIPE_SELECTED_SPRITE = ResourceLocation
+            .withDefaultNamespace("container/stonecutter/recipe_selected");
+    private static final ResourceLocation RECIPE_HIGHLIGHTED_SPRITE = ResourceLocation
+            .withDefaultNamespace("container/stonecutter/recipe_highlighted");
+    private static final ResourceLocation RECIPE_SPRITE = ResourceLocation
+            .withDefaultNamespace("container/stonecutter/recipe");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(NeoVillagersLumberjack.MODID,
             "textures/gui/container/woodworking.png");
     private static final int SCROLLER_WIDTH = 12;
     private static final int SCROLLER_HEIGHT = 15;

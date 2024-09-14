@@ -22,6 +22,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 
 public class WoodWorkingMenu extends AbstractContainerMenu {
@@ -181,7 +182,7 @@ public class WoodWorkingMenu extends AbstractContainerMenu {
                 return ItemStack.EMPTY;
             }
         } else if (this.level.getRecipeManager()
-                .getRecipeFor(SetupRecipeType.WOODWORKING.get(), new SimpleContainer(itemstack1), this.level)
+                .getRecipeFor(SetupRecipeType.WOODWORKING.get(), new SingleRecipeInput(itemstack1), this.level)
                 .isPresent()) {
             if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                 return ItemStack.EMPTY;
@@ -216,20 +217,25 @@ public class WoodWorkingMenu extends AbstractContainerMenu {
         this.access.execute((pLevel, pPos) -> this.clearContainer(pPlayer, this.container));
     }
     
+    private static SingleRecipeInput createRecipeInput(Container container) {
+        return new SingleRecipeInput(container.getItem(0));
+    }
+    
     private void setupRecipeList(Container pContainer, ItemStack pStack) {
         this.recipes.clear();
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
         if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(SetupRecipeType.WOODWORKING.get(), pContainer,
-                    this.level);
+            this.recipes = this.level.getRecipeManager().getRecipesFor(SetupRecipeType.WOODWORKING.get(),
+                    createRecipeInput(pContainer), this.level);
         }
     }
     
     protected void setupResultSlot() {
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
             final RecipeHolder<WoodWorkingRecipe> recipeholder = this.recipes.get(this.selectedRecipeIndex.get());
-            final ItemStack itemstack = recipeholder.value().assemble(this.container, this.level.registryAccess());
+            final ItemStack itemstack = recipeholder.value().assemble(createRecipeInput(this.container),
+                    this.level.registryAccess());
             if (itemstack.isItemEnabled(this.level.enabledFeatures())) {
                 this.resultContainer.setRecipeUsed(recipeholder);
                 this.resultSlot.set(itemstack);
