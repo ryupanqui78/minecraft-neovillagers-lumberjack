@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/ryupanqui78/minecraft-neovillagers-lumberjac
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 modId="neovillagerslumberjack" #mandatory
-version="1.2.7-1.21.1" #mandatory
+version="1.2.9-1.21.1" #mandatory
 displayName="Neo Villagers - The lumberjack" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
