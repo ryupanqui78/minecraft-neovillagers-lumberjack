@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -30,7 +30,7 @@ public class WoodWorkingBlock extends Block {
     
     public static final String BLOCK_NAME = "woodworking_table";
     public static final MapCodec<WoodWorkingBlock> CODEC = BlockBehaviour.simpleCodec(WoodWorkingBlock::new);
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     
     private static final Component CONTAINER_TITLE = Component.translatable("screen.container.woodworking");
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 9.0D, 16.0D);
@@ -77,6 +77,6 @@ public class WoodWorkingBlock extends Block {
         if (!pLevel.isClientSide && (pPlayer instanceof final ServerPlayer serverPlayer)) {
             serverPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
         }
-        return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

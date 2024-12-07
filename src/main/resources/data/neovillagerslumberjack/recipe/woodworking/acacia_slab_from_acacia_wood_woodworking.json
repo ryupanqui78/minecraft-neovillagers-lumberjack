@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_slab",
-  "ingredient": {
-    "item": "minecraft:acacia_wood"
-  },
-  "result": {
-    "count": 8,
-    "id": "minecraft:acacia_slab"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_slab","ingredient":"minecraft:acacia_wood","result":{"count":8,"id":"minecraft:acacia_slab"}}

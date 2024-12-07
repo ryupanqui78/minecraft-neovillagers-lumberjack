@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "button",
-  "ingredient": {
-    "item": "minecraft:acacia_wood"
-  },
-  "result": {
-    "count": 8,
-    "id": "minecraft:acacia_button"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"button","ingredient":"minecraft:acacia_wood","result":{"count":8,"id":"minecraft:acacia_button"}}

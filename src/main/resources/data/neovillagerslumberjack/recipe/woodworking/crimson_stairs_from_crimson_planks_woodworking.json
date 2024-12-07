@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_stairs",
-  "ingredient": {
-    "item": "minecraft:crimson_planks"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:crimson_stairs"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_stairs","ingredient":"minecraft:crimson_planks","result":{"count":1,"id":"minecraft:crimson_stairs"}}

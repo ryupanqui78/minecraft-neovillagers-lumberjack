@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_slab",
-  "ingredient": {
-    "item": "minecraft:mangrove_wood"
-  },
-  "result": {
-    "count": 8,
-    "id": "minecraft:mangrove_slab"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_slab","ingredient":"minecraft:mangrove_wood","result":{"count":8,"id":"minecraft:mangrove_slab"}}

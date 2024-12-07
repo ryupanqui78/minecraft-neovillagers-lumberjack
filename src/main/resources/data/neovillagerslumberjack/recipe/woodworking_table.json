@@ -5,15 +5,9 @@
     "@@@"
   ],
   "key": {
-    "$": {
-      "item": "minecraft:stone_pressure_plate"
-    },
-    "#": {
-      "item": "minecraft:iron_ingot"
-    },
-    "@": {
-      "tag": "minecraft:logs"
-    }
+    "$": "minecraft:stone_pressure_plate",
+    "#": "minecraft:iron_ingot",
+    "@": "#minecraft:logs"
   },
   "result": {
     "id": "neovillagerslumberjack:woodworking_table",

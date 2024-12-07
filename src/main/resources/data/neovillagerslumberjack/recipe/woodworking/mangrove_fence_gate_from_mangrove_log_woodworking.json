@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_fence_gate",
-  "ingredient": {
-    "item": "minecraft:mangrove_log"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:mangrove_fence_gate"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_fence_gate","ingredient":"minecraft:mangrove_log","result":{"count":1,"id":"minecraft:mangrove_fence_gate"}}

@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_trapdoor",
-  "ingredient": {
-    "item": "minecraft:crimson_hyphae"
-  },
-  "result": {
-    "count": 4,
-    "id": "minecraft:crimson_trapdoor"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_trapdoor","ingredient":"minecraft:crimson_hyphae","result":{"count":4,"id":"minecraft:crimson_trapdoor"}}

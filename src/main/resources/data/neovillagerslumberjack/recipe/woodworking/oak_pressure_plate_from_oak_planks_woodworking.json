@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_pressure_plate",
-  "ingredient": {
-    "item": "minecraft:oak_planks"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:oak_pressure_plate"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_pressure_plate","ingredient":"minecraft:oak_planks","result":{"count":1,"id":"minecraft:oak_pressure_plate"}}

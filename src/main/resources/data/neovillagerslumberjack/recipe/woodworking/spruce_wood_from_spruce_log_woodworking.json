@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wood",
-  "ingredient": {
-    "item": "minecraft:spruce_log"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:spruce_wood"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wood","ingredient":"minecraft:spruce_log","result":{"count":1,"id":"minecraft:spruce_wood"}}

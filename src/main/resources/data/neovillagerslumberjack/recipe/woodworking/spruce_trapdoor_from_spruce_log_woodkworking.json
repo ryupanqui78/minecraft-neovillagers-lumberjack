@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_trapdoor",
-  "ingredient": {
-    "item": "minecraft:spruce_log"
-  },
-  "result": {
-    "count": 4,
-    "id": "minecraft:spruce_trapdoor"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_trapdoor","ingredient":"minecraft:spruce_log","result":{"count":4,"id":"minecraft:spruce_trapdoor"}}

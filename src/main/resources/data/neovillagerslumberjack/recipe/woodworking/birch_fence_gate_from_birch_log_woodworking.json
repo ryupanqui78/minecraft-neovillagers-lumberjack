@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_fence_gate",
-  "ingredient": {
-    "item": "minecraft:birch_log"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:birch_fence_gate"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_fence_gate","ingredient":"minecraft:birch_log","result":{"count":1,"id":"minecraft:birch_fence_gate"}}

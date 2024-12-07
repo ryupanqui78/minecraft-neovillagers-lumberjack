@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_fence",
-  "ingredient": {
-    "item": "minecraft:crimson_stem"
-  },
-  "result": {
-    "count": 2,
-    "id": "minecraft:crimson_fence"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_fence","ingredient":"minecraft:crimson_stem","result":{"count":2,"id":"minecraft:crimson_fence"}}

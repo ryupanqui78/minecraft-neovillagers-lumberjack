@@ -1,9 +1,7 @@
 {
   "type": "neovillagerslumberjack:woodworking",
   "group": "boat",
-  "ingredient": {
-    "item": "minecraft:oak_log"
-  },
+  "ingredient": "minecraft:oak_log",
   "result": {
     "count": 1,
     "id": "minecraft:oak_boat"

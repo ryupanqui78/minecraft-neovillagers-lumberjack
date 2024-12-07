@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_slab",
-  "ingredient": {
-    "item": "minecraft:bamboo_block"
-  },
-  "result": {
-    "count": 4,
-    "id": "minecraft:bamboo_slab"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_slab","ingredient":"minecraft:bamboo_block","result":{"count":4,"id":"minecraft:bamboo_slab"}}

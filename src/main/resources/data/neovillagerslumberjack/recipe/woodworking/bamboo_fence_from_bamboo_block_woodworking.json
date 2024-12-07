@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_fence",
-  "ingredient": {
-    "item": "minecraft:bamboo_block"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:bamboo_fence"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_fence","ingredient":"minecraft:bamboo_block","result":{"count":1,"id":"minecraft:bamboo_fence"}}

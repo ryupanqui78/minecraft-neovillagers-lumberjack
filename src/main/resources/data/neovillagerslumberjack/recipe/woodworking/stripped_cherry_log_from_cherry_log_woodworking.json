@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wood",
-  "ingredient": {
-    "item": "minecraft:cherry_log"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:stripped_cherry_log"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wood","ingredient":"minecraft:cherry_log","result":{"count":1,"id":"minecraft:stripped_cherry_log"}}

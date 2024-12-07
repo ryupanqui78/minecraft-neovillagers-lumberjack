@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "planks",
-  "ingredient": {
-    "item": "minecraft:crimson_stem"
-  },
-  "result": {
-    "count": 4,
-    "id": "minecraft:crimson_planks"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"planks","ingredient":"minecraft:crimson_stem","result":{"count":4,"id":"minecraft:crimson_planks"}}

@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_fence_gate",
-  "ingredient": {
-    "item": "minecraft:spruce_wood"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:spruce_fence_gate"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_fence_gate","ingredient":"minecraft:spruce_wood","result":{"count":1,"id":"minecraft:spruce_fence_gate"}}

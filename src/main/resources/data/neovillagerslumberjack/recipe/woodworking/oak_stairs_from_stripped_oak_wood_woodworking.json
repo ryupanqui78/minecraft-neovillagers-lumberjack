@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_stairs",
-  "ingredient": {
-    "item": "minecraft:stripped_oak_wood"
-  },
-  "result": {
-    "count": 6,
-    "id": "minecraft:oak_stairs"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_stairs","ingredient":"minecraft:stripped_oak_wood","result":{"count":6,"id":"minecraft:oak_stairs"}}

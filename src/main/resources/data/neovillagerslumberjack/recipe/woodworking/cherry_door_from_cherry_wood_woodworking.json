@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_door",
-  "ingredient": {
-    "item": "minecraft:cherry_wood"
-  },
-  "result": {
-    "count": 2,
-    "id": "minecraft:cherry_door"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_door","ingredient":"minecraft:cherry_wood","result":{"count":2,"id":"minecraft:cherry_door"}}

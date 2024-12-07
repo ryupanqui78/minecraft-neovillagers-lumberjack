@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_stairs",
-  "ingredient": {
-    "item": "minecraft:bamboo_planks"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:bamboo_mosaic_stairs"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_stairs","ingredient":"minecraft:bamboo_planks","result":{"count":1,"id":"minecraft:bamboo_mosaic_stairs"}}

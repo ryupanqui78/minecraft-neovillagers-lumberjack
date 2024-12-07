@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "boat",
-  "ingredient": {
-    "item": "minecraft:jungle_wood"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:jungle_boat"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"boat","ingredient":"minecraft:jungle_wood","result":{"count":1,"id":"minecraft:jungle_boat"}}

@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_trapdoor",
-  "ingredient": {
-    "item": "minecraft:bamboo_planks"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:bamboo_trapdoor"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_trapdoor","ingredient":"minecraft:bamboo_planks","result":{"count":1,"id":"minecraft:bamboo_trapdoor"}}

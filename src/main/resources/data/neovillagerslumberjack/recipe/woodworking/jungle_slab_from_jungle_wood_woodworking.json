@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_slab",
-  "ingredient": {
-    "item": "minecraft:jungle_wood"
-  },
-  "result": {
-    "count": 8,
-    "id": "minecraft:jungle_slab"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_slab","ingredient":"minecraft:jungle_wood","result":{"count":8,"id":"minecraft:jungle_slab"}}

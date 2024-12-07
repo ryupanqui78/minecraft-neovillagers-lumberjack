@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wood",
-  "ingredient": {
-    "item": "minecraft:bamboo_block"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:stripped_bamboo_block"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wood","ingredient":"minecraft:bamboo_block","result":{"count":1,"id":"minecraft:stripped_bamboo_block"}}

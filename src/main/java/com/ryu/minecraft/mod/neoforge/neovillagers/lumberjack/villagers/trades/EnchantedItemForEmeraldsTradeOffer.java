@@ -35,14 +35,14 @@ public class EnchantedItemForEmeraldsTradeOffer implements VillagerTrades.ItemLi
     
     @Override
     public MerchantOffer getOffer(Entity trader, RandomSource random) {
-        int i = 5 + random.nextInt(15);
-        RegistryAccess registryaccess = trader.level().registryAccess();
-        Optional<HolderSet.Named<Enchantment>> optional = registryaccess.registryOrThrow(Registries.ENCHANTMENT)
-                .getTag(EnchantmentTags.ON_TRADED_EQUIPMENT);
-        ItemStack itemstack = EnchantmentHelper.enchantItem(random, new ItemStack(this.itemSell.getItem()), i,
+        final int i = 5 + random.nextInt(15);
+        final RegistryAccess registryaccess = trader.level().registryAccess();
+        final Optional<HolderSet.Named<Enchantment>> optional = registryaccess.lookupOrThrow(Registries.ENCHANTMENT)
+                .get(EnchantmentTags.ON_TRADED_EQUIPMENT);
+        final ItemStack itemstack = EnchantmentHelper.enchantItem(random, new ItemStack(this.itemSell.getItem()), i,
                 registryaccess, optional);
-        int j = Math.min(this.baseEmeraldCost + i, 64);
-        ItemCost itemcost = new ItemCost(Items.EMERALD, j);
+        final int j = Math.min(this.baseEmeraldCost + i, 64);
+        final ItemCost itemcost = new ItemCost(Items.EMERALD, j);
         return new MerchantOffer(itemcost, itemstack, this.maxUses, this.villagerXp, this.priceMultiplier);
     }
 }

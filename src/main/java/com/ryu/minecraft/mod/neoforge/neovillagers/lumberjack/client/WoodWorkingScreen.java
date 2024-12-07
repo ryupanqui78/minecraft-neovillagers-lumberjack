@@ -9,6 +9,7 @@ import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.item.crafting.Wood
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -22,27 +23,18 @@ import net.neoforged.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> {
     
-    private static final ResourceLocation SCROLLER_SPRITE = ResourceLocation
-            .withDefaultNamespace("container/stonecutter/scroller");
-    private static final ResourceLocation SCROLLER_DISABLED_SPRITE = ResourceLocation
-            .withDefaultNamespace("container/stonecutter/scroller_disabled");
-    private static final ResourceLocation RECIPE_SELECTED_SPRITE = ResourceLocation
-            .withDefaultNamespace("container/stonecutter/recipe_selected");
-    private static final ResourceLocation RECIPE_HIGHLIGHTED_SPRITE = ResourceLocation
-            .withDefaultNamespace("container/stonecutter/recipe_highlighted");
-    private static final ResourceLocation RECIPE_SPRITE = ResourceLocation
-            .withDefaultNamespace("container/stonecutter/recipe");
+    private static final int RECIPES_COLUMNS = 4;
+    private static final int RECIPES_IMAGE_SIZE = 18;
+    private static final int RECIPES_ROWS = 3;
+    private static final int RESULT_START_X = 41;
+    private static final int RESULT_START_Y = 17;
+    private static final int SCROLLER_CONTENT_SIZE = 54;
+    private static final int SCROLLER_HEIGHT = 15;
+    private static final int SCROLLER_START_X = 116;
+    private static final int SCROLLER_START_Y = 17;
+    private static final int SCROLLER_WIDTH = 12;
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(NeoVillagersLumberjack.MODID,
             "textures/gui/container/woodworking.png");
-    private static final int SCROLLER_WIDTH = 12;
-    private static final int SCROLLER_HEIGHT = 15;
-    private static final int SCROLLER_X = 119;
-    private static final int SCROLLER_Y = 17;
-    private static final int RECIPES_X = 52;
-    private static final int RECIPES_Y = 16;
-    private static final int RECIPES_COLUMNS = 4;
-    private static final int RECIPES_IMAGE_SIZE_WIDTH = 16;
-    private static final int RECIPES_IMAGE_SIZE_HEIGHT = 18;
     
     private boolean scrolling;
     private float scrollOffs;
@@ -75,30 +67,32 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
         this.scrolling = false;
         if (this.displayRecipes) {
-            final int k = this.startIndex + WoodWorkingScreen.SCROLLER_WIDTH;
-            int i = this.leftPos + WoodWorkingScreen.RECIPES_X;
-            int j = this.topPos + WoodWorkingScreen.RECIPES_Y;
+            final int indexLastVisibleElement = this.startIndex
+                    + (WoodWorkingScreen.RECIPES_COLUMNS * WoodWorkingScreen.RECIPES_ROWS);
+            final int initialIngredientPosX = this.leftPos + WoodWorkingScreen.RESULT_START_X;
+            final int initialIngredientPosY = this.topPos + WoodWorkingScreen.RESULT_START_Y;
+            final int initialScrollPosX = this.leftPos + WoodWorkingScreen.SCROLLER_START_X;
+            final int initialScrollPosY = this.topPos + WoodWorkingScreen.SCROLLER_START_Y;
+            final int maxScrollPosY = initialScrollPosY + WoodWorkingScreen.SCROLLER_CONTENT_SIZE;
             
-            for (int l = this.startIndex; l < k; ++l) {
-                final int i1 = l - this.startIndex;
-                final int carryX = i1 % WoodWorkingScreen.RECIPES_COLUMNS;
-                final int carryY = i1 / WoodWorkingScreen.RECIPES_COLUMNS;
-                final double d0 = pMouseX - (i + (carryX * WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH));
-                final double d1 = pMouseY - (j + (carryY * WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT));
-                if ((d0 >= 0.0) && (d1 >= 0.0) && (d0 < WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH)
-                        && (d1 < WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT)
-                        && this.menu.clickMenuButton(this.minecraft.player, l)) {
+            for (int i = this.startIndex; i < indexLastVisibleElement; ++i) {
+                final int indexInScreen = i - this.startIndex;
+                final int carryX = indexInScreen % WoodWorkingScreen.RECIPES_COLUMNS;
+                final int carryY = indexInScreen / WoodWorkingScreen.RECIPES_COLUMNS;
+                final double d0 = pMouseX - (initialIngredientPosX + (carryX * WoodWorkingScreen.RECIPES_IMAGE_SIZE));
+                final double d1 = pMouseY - (initialIngredientPosY + (carryY * WoodWorkingScreen.RECIPES_IMAGE_SIZE));
+                if ((d0 >= 0.0) && (d1 >= 0.0) && (d0 < WoodWorkingScreen.RECIPES_IMAGE_SIZE)
+                        && (d1 < WoodWorkingScreen.RECIPES_IMAGE_SIZE)
+                        && this.menu.clickMenuButton(this.minecraft.player, i)) {
                     Minecraft.getInstance().getSoundManager()
                             .play(SimpleSoundInstance.forUI(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0F));
-                    this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, l);
+                    this.minecraft.gameMode.handleInventoryButtonClick(this.menu.containerId, i);
                     return true;
                 }
             }
             
-            i = this.leftPos + WoodWorkingScreen.SCROLLER_X;
-            j = this.topPos + 11;
-            if ((pMouseX >= i) && (pMouseX < (i + WoodWorkingScreen.SCROLLER_WIDTH)) && (pMouseY >= j)
-                    && (pMouseY < (j + 54))) {
+            if ((pMouseX >= initialScrollPosX) && (pMouseX < (initialScrollPosX + WoodWorkingScreen.SCROLLER_WIDTH))
+                    && (pMouseY >= initialScrollPosY) && (pMouseY < maxScrollPosY)) {
                 this.scrolling = true;
             }
         }
@@ -109,10 +103,11 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
     @Override
     public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
         if (this.scrolling && this.isScrollBarActive()) {
-            final int i = this.topPos + WoodWorkingScreen.RECIPES_Y;
-            final int j = i + 54;
-            this.scrollOffs = ((float) pMouseY - i - 7.5F) / (j - i - 15.0F);
-            this.scrollOffs = Mth.clamp(this.scrollOffs, 0.0F, 1.0F);
+            final int initialScrollPosY = this.topPos + WoodWorkingScreen.SCROLLER_START_Y;
+            final int maxScrollPosY = initialScrollPosY + WoodWorkingScreen.SCROLLER_CONTENT_SIZE;
+            this.scrollOffs = ((float) pMouseY - initialScrollPosY - 7.5f)
+                    / (maxScrollPosY - initialScrollPosY - 15.0f);
+            this.scrollOffs = Mth.clamp(this.scrollOffs, 0.0F, 1.0f);
             this.startIndex = (int) ((this.scrollOffs * this.getOffscreenRows()) + 0.5)
                     * WoodWorkingScreen.RECIPES_COLUMNS;
             return true;
@@ -141,74 +136,67 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
     
     @Override
     protected void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
-        final int i = this.leftPos;
-        final int j = this.topPos;
-        pGuiGraphics.blit(WoodWorkingScreen.TEXTURE, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        pGuiGraphics.blit(RenderType::guiTextured, WoodWorkingScreen.TEXTURE, this.leftPos, this.topPos, 0, 0,
+                this.imageWidth, this.imageHeight, 256, 256);
         final int k = (int) (39.0F * this.scrollOffs);
-        final ResourceLocation resourcelocation = this.isScrollBarActive() ? WoodWorkingScreen.SCROLLER_SPRITE
-                : WoodWorkingScreen.SCROLLER_DISABLED_SPRITE;
-        pGuiGraphics.blitSprite(resourcelocation, i + WoodWorkingScreen.SCROLLER_X,
-                j + WoodWorkingScreen.SCROLLER_Y + k, WoodWorkingScreen.SCROLLER_WIDTH,
-                WoodWorkingScreen.SCROLLER_HEIGHT);
-        final int l = this.leftPos + WoodWorkingScreen.RECIPES_X;
-        final int i1 = this.topPos + WoodWorkingScreen.RECIPES_Y;
-        final int j1 = this.startIndex + WoodWorkingScreen.SCROLLER_WIDTH;
-        this.renderButtons(pGuiGraphics, pMouseX, pMouseY, l, i1, j1);
-        this.renderRecipes(pGuiGraphics, l, i1, j1);
-    }
-    
-    private void renderButtons(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, int pX, int pY, int pLastVisibleElementIndex) {
-        for (int i = this.startIndex; (i < pLastVisibleElementIndex) && (i < this.menu.getNumRecipes()); ++i) {
-            final int j = i - this.startIndex;
-            final int k = pX + ((j % WoodWorkingScreen.RECIPES_COLUMNS) * WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH);
-            final int l = j / WoodWorkingScreen.RECIPES_COLUMNS;
-            final int i1 = pY + (l * WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT) + 2;
-            ResourceLocation resourcelocation;
-            if (i == this.menu.getSelectedRecipeIndex()) {
-                resourcelocation = WoodWorkingScreen.RECIPE_SELECTED_SPRITE;
-            } else if ((pMouseX >= k) && (pMouseY >= i1) && (pMouseX < (k + WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH))
-                    && (pMouseY < (i1 + WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT))) {
-                resourcelocation = WoodWorkingScreen.RECIPE_HIGHLIGHTED_SPRITE;
-            } else {
-                resourcelocation = WoodWorkingScreen.RECIPE_SPRITE;
-            }
-            
-            pGuiGraphics.blitSprite(resourcelocation, k, i1 - 1, WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH,
-                    WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT);
-        }
-    }
-    
-    private void renderRecipes(GuiGraphics pGuiGraphics, int pX, int pY, int pStartIndex) {
-        final List<RecipeHolder<WoodWorkingRecipe>> list = this.menu.getRecipes();
+        final int posScrollImageX = this.isScrollBarActive() ? 176 : 188;
+        final int initialScrollPosX = this.leftPos + WoodWorkingScreen.SCROLLER_START_X;
+        final int initialScrollPosY = this.topPos + WoodWorkingScreen.SCROLLER_START_Y;
         
-        for (int i = this.startIndex; (i < pStartIndex) && (i < this.menu.getNumRecipes()); ++i) {
-            final int j = i - this.startIndex;
-            final int k = pX + ((j % WoodWorkingScreen.RECIPES_COLUMNS) * WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH);
-            final int l = j / WoodWorkingScreen.RECIPES_COLUMNS;
-            final int i1 = pY + (l * WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT) + 2;
-            pGuiGraphics.renderItem(list.get(i).value().getResultItem(this.minecraft.level.registryAccess()), k, i1);
+        pGuiGraphics.blit(RenderType::guiTextured, WoodWorkingScreen.TEXTURE, initialScrollPosX, initialScrollPosY + k,
+                posScrollImageX, 0, WoodWorkingScreen.SCROLLER_WIDTH, WoodWorkingScreen.SCROLLER_HEIGHT, 256, 256);
+        this.renderButtons(pGuiGraphics, pMouseX, pMouseY);
+    }
+    
+    private void renderButtons(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
+        final int initialPosX = this.leftPos + WoodWorkingScreen.RESULT_START_X;
+        final int initialPosY = this.topPos + WoodWorkingScreen.RESULT_START_Y;
+        final int indexLastVisibleElement = this.startIndex
+                + (WoodWorkingScreen.RECIPES_COLUMNS * WoodWorkingScreen.RECIPES_ROWS);
+        final List<RecipeHolder<WoodWorkingRecipe>> list = this.menu.getVisibleRecipes();
+        
+        for (int i = this.startIndex; (i < indexLastVisibleElement) && (i < this.menu.getNumRecipes()); ++i) {
+            final int indexInScreen = i - this.startIndex;
+            final int posIngredientX = initialPosX
+                    + ((indexInScreen % WoodWorkingScreen.RECIPES_COLUMNS) * WoodWorkingScreen.RECIPES_IMAGE_SIZE);
+            final int row = indexInScreen / WoodWorkingScreen.RECIPES_COLUMNS;
+            final int posIngredientY = initialPosY + (row * WoodWorkingScreen.RECIPES_IMAGE_SIZE);
+            
+            int posImageX = 0;
+            if (i == this.menu.getSelectedRecipeIndex()) {
+                posImageX = 36;
+            } else if ((pMouseX >= posIngredientX) && (pMouseY >= posIngredientY)
+                    && (pMouseX < (posIngredientX + WoodWorkingScreen.RECIPES_IMAGE_SIZE))
+                    && (pMouseY < (posIngredientY + WoodWorkingScreen.RECIPES_IMAGE_SIZE))) {
+                posImageX = 18;
+            }
+            pGuiGraphics.blit(RenderType::guiTextured, WoodWorkingScreen.TEXTURE, posIngredientX, posIngredientY,
+                    posImageX, 166, WoodWorkingScreen.RECIPES_IMAGE_SIZE, WoodWorkingScreen.RECIPES_IMAGE_SIZE, 256,
+                    256);
+            pGuiGraphics.renderItem(list.get(i).value().getResult(), posIngredientX + 1, posIngredientY + 1);
         }
     }
     
     @Override
-    protected void renderTooltip(GuiGraphics pGuiGraphics, int pX, int pY) {
-        super.renderTooltip(pGuiGraphics, pX, pY);
+    protected void renderTooltip(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
+        super.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
         if (this.displayRecipes) {
-            final int i = this.leftPos + WoodWorkingScreen.RECIPES_X;
-            final int j = this.topPos + WoodWorkingScreen.RECIPES_Y;
-            final int k = this.startIndex + WoodWorkingScreen.SCROLLER_WIDTH;
-            final List<RecipeHolder<WoodWorkingRecipe>> list = this.menu.getRecipes();
+            final int initialPosX = this.leftPos + WoodWorkingScreen.RESULT_START_X;
+            final int initialPosY = this.topPos + WoodWorkingScreen.RESULT_START_Y;
+            final int indexLastVisibleElement = this.startIndex
+                    + (WoodWorkingScreen.RECIPES_COLUMNS * WoodWorkingScreen.RECIPES_ROWS);
+            final List<RecipeHolder<WoodWorkingRecipe>> list = this.menu.getVisibleRecipes();
             
-            for (int l = this.startIndex; (l < k) && (l < this.menu.getNumRecipes()); ++l) {
-                final int i1 = l - this.startIndex;
-                final int j1 = i
-                        + ((i1 % WoodWorkingScreen.RECIPES_COLUMNS) * WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH);
-                final int k1 = j
-                        + ((i1 / WoodWorkingScreen.RECIPES_COLUMNS) * WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT) + 2;
-                if ((pX >= j1) && (pX < (j1 + WoodWorkingScreen.RECIPES_IMAGE_SIZE_WIDTH)) && (pY >= k1)
-                        && (pY < (k1 + WoodWorkingScreen.RECIPES_IMAGE_SIZE_HEIGHT))) {
-                    pGuiGraphics.renderTooltip(this.font,
-                            list.get(l).value().getResultItem(this.minecraft.level.registryAccess()), pX, pY);
+            for (int i = this.startIndex; (i < indexLastVisibleElement) && (i < this.menu.getNumRecipes()); ++i) {
+                final int indexInScreen = i - this.startIndex;
+                final int posIngredientX = initialPosX
+                        + ((indexInScreen % WoodWorkingScreen.RECIPES_COLUMNS) * WoodWorkingScreen.RECIPES_IMAGE_SIZE);
+                final int row = indexInScreen / WoodWorkingScreen.RECIPES_COLUMNS;
+                final int posIngredientY = initialPosY + (row * WoodWorkingScreen.RECIPES_IMAGE_SIZE);
+                if ((pMouseX >= posIngredientX) && (pMouseY >= posIngredientY)
+                        && (pMouseX < (posIngredientX + WoodWorkingScreen.RECIPES_IMAGE_SIZE))
+                        && (pMouseY < (posIngredientY + WoodWorkingScreen.RECIPES_IMAGE_SIZE))) {
+                    pGuiGraphics.renderTooltip(this.font, list.get(i).value().getResult(), pMouseX, pMouseY);
                 }
             }
         }

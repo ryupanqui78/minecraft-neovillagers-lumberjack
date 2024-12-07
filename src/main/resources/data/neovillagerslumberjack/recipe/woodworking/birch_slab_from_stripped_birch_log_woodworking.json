@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_slab",
-  "ingredient": {
-    "item": "minecraft:stripped_birch_log"
-  },
-  "result": {
-    "count": 8,
-    "id": "minecraft:birch_slab"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_slab","ingredient":"minecraft:stripped_birch_log","result":{"count":8,"id":"minecraft:birch_slab"}}

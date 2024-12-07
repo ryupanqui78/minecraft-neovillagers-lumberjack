@@ -1,9 +1,7 @@
 {
   "type": "neovillagerslumberjack:woodworking",
   "group": "boat",
-  "ingredient": {
-    "item": "minecraft:acacia_log"
-  },
+  "ingredient": "minecraft:acacia_log",
   "result": {
     "count": 1,
     "id": "minecraft:acacia_boat"

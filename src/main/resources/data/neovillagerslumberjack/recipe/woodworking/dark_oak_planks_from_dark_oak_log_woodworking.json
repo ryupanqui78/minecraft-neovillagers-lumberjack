@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "planks",
-  "ingredient": {
-    "item": "minecraft:dark_oak_log"
-  },
-  "result": {
-    "count": 4,
-    "id": "minecraft:dark_oak_planks"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"planks","ingredient":"minecraft:dark_oak_log","result":{"count":4,"id":"minecraft:dark_oak_planks"}}

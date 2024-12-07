@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "planks",
-  "ingredient": {
-    "item": "minecraft:cherry_wood"
-  },
-  "result": {
-    "count": 4,
-    "id": "minecraft:cherry_planks"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"planks","ingredient":"minecraft:cherry_wood","result":{"count":4,"id":"minecraft:cherry_planks"}}

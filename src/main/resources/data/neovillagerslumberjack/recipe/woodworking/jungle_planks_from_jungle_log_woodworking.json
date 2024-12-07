@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "planks",
-  "ingredient": {
-    "item": "minecraft:jungle_log"
-  },
-  "result": {
-    "count": 4,
-    "id": "minecraft:jungle_planks"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"planks","ingredient":"minecraft:jungle_log","result":{"count":4,"id":"minecraft:jungle_planks"}}

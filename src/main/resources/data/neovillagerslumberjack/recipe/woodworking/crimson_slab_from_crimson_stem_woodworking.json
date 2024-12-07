@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_slab",
-  "ingredient": {
-    "item": "minecraft:crimson_stem"
-  },
-  "result": {
-    "count": 8,
-    "id": "minecraft:crimson_slab"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_slab","ingredient":"minecraft:crimson_stem","result":{"count":8,"id":"minecraft:crimson_slab"}}

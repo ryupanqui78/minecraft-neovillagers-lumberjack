@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_slab",
-  "ingredient": {
-    "item": "minecraft:warped_stem"
-  },
-  "result": {
-    "count": 8,
-    "id": "minecraft:warped_slab"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_slab","ingredient":"minecraft:warped_stem","result":{"count":8,"id":"minecraft:warped_slab"}}

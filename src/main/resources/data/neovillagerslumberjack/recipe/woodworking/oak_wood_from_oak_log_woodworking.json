@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wood",
-  "ingredient": {
-    "item": "minecraft:oak_log"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:oak_wood"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wood","ingredient":"minecraft:oak_log","result":{"count":1,"id":"minecraft:oak_wood"}}

@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_sign",
-  "ingredient": {
-    "item": "minecraft:cherry_wood"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:cherry_hanging_sign"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_sign","ingredient":"minecraft:cherry_wood","result":{"count":1,"id":"minecraft:cherry_hanging_sign"}}

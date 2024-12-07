@@ -18,30 +18,29 @@ public class WoodWorkingSerialize implements RecipeSerializer<WoodWorkingRecipe>
     private static final String ELEMENT_GROUP = "group";
     private static final String ELEMENT_RESULT = "result";
     
-    protected final SingleItemRecipe.Factory<WoodWorkingRecipe> factory;
+    private final MapCodec<WoodWorkingRecipe> codec;
+    private final StreamCodec<RegistryFriendlyByteBuf, WoodWorkingRecipe> streamCodec;
     
-    public WoodWorkingSerialize(SingleItemRecipe.Factory<WoodWorkingRecipe> pFactory) {
-        this.factory = pFactory;
+    public WoodWorkingSerialize(SingleItemRecipe.Factory<WoodWorkingRecipe> factory) {
+        this.codec = RecordCodecBuilder.mapCodec(element -> element.group(
+                Codec.STRING.optionalFieldOf(WoodWorkingSerialize.ELEMENT_GROUP, "")
+                        .forGetter(WoodWorkingRecipe::group),
+                Ingredient.CODEC.fieldOf(WoodWorkingSerialize.ELEMENT_INGREDIENT).forGetter(WoodWorkingRecipe::input),
+                ItemStack.STRICT_CODEC.fieldOf(WoodWorkingSerialize.ELEMENT_RESULT)
+                        .forGetter(WoodWorkingRecipe::getResult))
+                .apply(element, factory::create));
+        this.streamCodec = StreamCodec.composite(ByteBufCodecs.STRING_UTF8, WoodWorkingRecipe::group,
+                Ingredient.CONTENTS_STREAM_CODEC, WoodWorkingRecipe::input, ItemStack.STREAM_CODEC,
+                WoodWorkingRecipe::getResult, factory::create);
     }
     
     @Override
     public MapCodec<WoodWorkingRecipe> codec() {
-        return RecordCodecBuilder
-                .mapCodec(
-                        elements -> elements
-                                .group(Codec.STRING.optionalFieldOf(WoodWorkingSerialize.ELEMENT_GROUP, "")
-                                        .forGetter(WoodWorkingRecipe::getGroup),
-                                        Ingredient.CODEC_NONEMPTY.fieldOf(WoodWorkingSerialize.ELEMENT_INGREDIENT)
-                                                .forGetter(WoodWorkingRecipe::getIngredient),
-                                        ItemStack.STRICT_CODEC.fieldOf(WoodWorkingSerialize.ELEMENT_RESULT)
-                                                .forGetter(WoodWorkingRecipe::getResult))
-                                .apply(elements, this.factory::create));
+        return this.codec;
     }
     
     @Override
     public StreamCodec<RegistryFriendlyByteBuf, WoodWorkingRecipe> streamCodec() {
-        return StreamCodec.composite(ByteBufCodecs.STRING_UTF8, WoodWorkingRecipe::getGroup,
-                Ingredient.CONTENTS_STREAM_CODEC, WoodWorkingRecipe::getIngredient, ItemStack.STREAM_CODEC,
-                WoodWorkingRecipe::getResult, this.factory::create);
+        return this.streamCodec;
     }
 }

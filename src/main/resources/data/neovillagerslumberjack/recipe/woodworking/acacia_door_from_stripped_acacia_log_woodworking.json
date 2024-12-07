@@ -1,11 +1,1 @@
-{
-  "type": "neovillagerslumberjack:woodworking",
-  "group": "wooden_door",
-  "ingredient": {
-    "item": "minecraft:stripped_acacia_log"
-  },
-  "result": {
-    "count": 2,
-    "id": "minecraft:acacia_door"
-  }
-}
+{"type":"neovillagerslumberjack:woodworking","group":"wooden_door","ingredient":"minecraft:stripped_acacia_log","result":{"count":2,"id":"minecraft:acacia_door"}}
