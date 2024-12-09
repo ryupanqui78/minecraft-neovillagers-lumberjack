@@ -51,7 +51,7 @@ public class NeoVillagersLumberjack {
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::registerPayloadHandlersEvent);
         
-        NeoForge.EVENT_BUS.addListener(ServerWoodWorkingRecipes::datapackSync);
+        NeoForge.EVENT_BUS.addListener(ServerWoodWorkingRecipes::onPlayerLoggedIn);
     }
     
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -70,5 +70,4 @@ public class NeoVillagersLumberjack {
     public void registerSearchCategories(RegisterRecipeBookSearchCategoriesEvent event) {
         event.register(NeoVillagersLumberjack.WOODWORKING_SEARCH_CATEGORY, SetupRecipeType.WOODWORKING_CATEGORY.get());
     }
-    
 }
