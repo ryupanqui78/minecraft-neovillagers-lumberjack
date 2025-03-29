@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_trapdoor",
+  "ingredient": "minecraft:pale_oak_wood",
+  "result": {
+    "count": 4,
+    "id": "minecraft:pale_oak_trapdoor"
+  }
+}

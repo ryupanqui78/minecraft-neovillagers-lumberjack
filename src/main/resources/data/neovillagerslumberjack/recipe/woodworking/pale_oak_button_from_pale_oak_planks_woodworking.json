@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "button",
+  "ingredient": "minecraft:pale_oak_planks",
+  "result": {
+    "count": 1,
+    "id": "minecraft:pale_oak_button"
+  }
+}

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.NeoVillagersLumberjack;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.item.crafting.WoodWorkingRecipe;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupRecipeType;
 
@@ -42,10 +41,6 @@ public class ServerWoodWorkingRecipeInputs implements WoodWorkingRecipeInputs {
     public void syncToClient(Stream<ServerPlayer> players) {
         final ClientboundWoodWorkingRecipesPayload payload = new ClientboundWoodWorkingRecipesPayload(this.recipes);
         players.forEach(player -> {
-            this.recipes.stream().forEach(recipe -> {
-                NeoVillagersLumberjack.LOGGER.info(recipe.value().getResult().getDisplayName().getString());
-                NeoVillagersLumberjack.LOGGER.info("Is in book: " + player.getRecipeBook().contains(recipe.id()));
-            });
             PacketDistributor.sendToPlayer(player, payload);
         });
     }

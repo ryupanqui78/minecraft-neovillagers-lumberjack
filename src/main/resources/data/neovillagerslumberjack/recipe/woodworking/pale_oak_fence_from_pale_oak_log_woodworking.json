@@ -1,0 +1,9 @@
+{
+  "type": "neovillagerslumberjack:woodworking",
+  "group": "wooden_fence",
+  "ingredient": "minecraft:pale_oak_log",
+  "result": {
+    "count": 2,
+    "id": "minecraft:pale_oak_fence"
+  }
+}
