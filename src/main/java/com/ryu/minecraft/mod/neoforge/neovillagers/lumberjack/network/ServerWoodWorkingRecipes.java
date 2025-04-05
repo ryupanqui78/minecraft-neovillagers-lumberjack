@@ -11,6 +11,10 @@ public class ServerWoodWorkingRecipes {
     
     private static ServerWoodWorkingRecipeInputs inputs;
     
+    public static WoodWorkingRecipeInputs inputs() {
+        return ServerWoodWorkingRecipes.inputs;
+    }
+    
     @SubscribeEvent
     public static void onPlayerLoggedIn(PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof final ServerPlayer serverPlayer
@@ -20,10 +24,6 @@ public class ServerWoodWorkingRecipes {
             ServerWoodWorkingRecipes.inputs.syncToClient(List.of(serverPlayer).stream());
         }
         
-    }
-    
-    public static WoodWorkingRecipeInputs inputs() {
-        return ServerWoodWorkingRecipes.inputs;
     }
     
     private ServerWoodWorkingRecipes() {

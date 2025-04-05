@@ -13,7 +13,7 @@ public class SetupGeneralEvents {
     
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {
-        if (event.getType() == SetupVillagers.LUMBERJACK.get()) {
+        if (event.getType() == SetupVillagers.LUMBERJACK) {
             final Worker worker = new Lumberjack();
             worker.getTrades(event);
         }

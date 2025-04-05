@@ -1,3 +1,5 @@
+1.4.12-1.21.5:
+ - Release update to 1.21.5.
 1.4.11-1.21.4:
  - Release update to 1.21.4.
  - Adding Pale Oak recipe to Woodworking.

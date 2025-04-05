@@ -6,6 +6,7 @@ import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades.E
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades.ItemForEmeraldTradeOffer;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades.ItemForEmeraldVillagerType;
 
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
 import net.minecraft.world.entity.npc.VillagerType;
@@ -50,13 +51,13 @@ public class Lumberjack extends Worker {
     protected ItemListing[] getLevel4() {
         final ItemListing option1 = new EnchantedItemForEmeraldsTradeOffer(Items.IRON_AXE, 4, 3, 10);
         final ItemListing option2 = new ItemForEmeraldVillagerType(1, 3, 6, 10,
-                ImmutableMap.<VillagerType, Item> builder().put(VillagerType.PLAINS, Items.CHERRY_LOG)
+                ImmutableMap.<ResourceKey<VillagerType>, Item> builder().put(VillagerType.PLAINS, Items.CHERRY_LOG)
                         .put(VillagerType.TAIGA, Items.SPRUCE_LOG).put(VillagerType.SNOW, Items.SPRUCE_LOG)
                         .put(VillagerType.DESERT, Items.DEAD_BUSH).put(VillagerType.JUNGLE, Items.JUNGLE_LOG)
                         .put(VillagerType.SAVANNA, Items.ACACIA_LOG).put(VillagerType.SWAMP, Items.MANGROVE_LOG)
                         .build());
         final ItemListing option3 = new ItemForEmeraldVillagerType(1, 4, 4, 12,
-                ImmutableMap.<VillagerType, Item> builder().put(VillagerType.PLAINS, Items.CHERRY_LEAVES)
+                ImmutableMap.<ResourceKey<VillagerType>, Item> builder().put(VillagerType.PLAINS, Items.CHERRY_LEAVES)
                         .put(VillagerType.TAIGA, Items.SPRUCE_LEAVES).put(VillagerType.SNOW, Items.SPRUCE_LEAVES)
                         .put(VillagerType.DESERT, Items.DEAD_BUSH).put(VillagerType.JUNGLE, Items.JUNGLE_LEAVES)
                         .put(VillagerType.SAVANNA, Items.ACACIA_LEAVES).put(VillagerType.SWAMP, Items.MANGROVE_LEAVES)

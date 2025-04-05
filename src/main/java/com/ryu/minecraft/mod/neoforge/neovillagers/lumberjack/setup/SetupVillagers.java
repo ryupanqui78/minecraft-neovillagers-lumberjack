@@ -5,6 +5,10 @@ import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.NeoVillagersLumber
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.Lumberjack;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -20,22 +24,36 @@ public class SetupVillagers {
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister
             .create(BuiltInRegistries.VILLAGER_PROFESSION, NeoVillagersLumberjack.MODID);
     
+    public static final ResourceKey<VillagerProfession> LUMBERJACK = SetupVillagers.createKey(Lumberjack.ENTITY_NAME);
+    
     public static final DeferredHolder<PoiType, PoiType> LUMBERJACK_POI = SetupVillagers.POI_TYPES.register(
             Lumberjack.ENTITY_POI_NAME,
             () -> new PoiType(
                     ImmutableSet.copyOf(SetupBlocks.WOODWORKING_TABLE.get().getStateDefinition().getPossibleStates()),
                     1, 1));
     
-    public static final DeferredHolder<VillagerProfession, VillagerProfession> LUMBERJACK = SetupVillagers.VILLAGER_PROFESSIONS
-            .register(Lumberjack.ENTITY_NAME,
-                    () -> new VillagerProfession(Lumberjack.ENTITY_NAME,
-                            x -> x.is(SetupVillagers.LUMBERJACK_POI.getKey()),
-                            x -> x.is(SetupVillagers.LUMBERJACK_POI.getKey()), ImmutableSet.of(), ImmutableSet.of(),
-                            SoundEvents.VILLAGER_WORK_FARMER));
+    static {
+        SetupVillagers.VILLAGER_PROFESSIONS.register(Lumberjack.ENTITY_NAME, SetupVillagers::registerVillager);
+    }
+    
+    private static ResourceKey<VillagerProfession> createKey(String pName) {
+        return ResourceKey.create(Registries.VILLAGER_PROFESSION,
+                ResourceLocation.fromNamespaceAndPath(NeoVillagersLumberjack.MODID, pName));
+    }
     
     public static void register(IEventBus eventBus) {
         SetupVillagers.POI_TYPES.register(eventBus);
         SetupVillagers.VILLAGER_PROFESSIONS.register(eventBus);
+    }
+    
+    private static VillagerProfession registerVillager() {
+        final ResourceLocation villagerResource = ResourceLocation.fromNamespaceAndPath(NeoVillagersLumberjack.MODID,
+                Lumberjack.ENTITY_NAME);
+        final Component villager = Component
+                .translatable("entity." + villagerResource.getNamespace() + ".villager." + villagerResource.getPath());
+        return new VillagerProfession(villager, x -> x.is(SetupVillagers.LUMBERJACK_POI.getKey()),
+                x -> x.is(SetupVillagers.LUMBERJACK_POI.getKey()), ImmutableSet.of(), ImmutableSet.of(),
+                SoundEvents.VILLAGER_WORK_FARMER);
     }
     
     private SetupVillagers() {

@@ -78,7 +78,7 @@ public class WoodWorkingMenu extends AbstractContainerMenu {
             
             @Override
             public void onTake(Player pPlayer, ItemStack pStack) {
-                pStack.onCraftedBy(pPlayer.level(), pPlayer, pStack.getCount());
+                pStack.onCraftedBy(pPlayer, pStack.getCount());
                 WoodWorkingMenu.this.resultContainer.awardUsedRecipes(pPlayer, this.getRelevantItems());
                 final ItemStack itemstack = WoodWorkingMenu.this.inputSlot.remove(1);
                 if (!itemstack.isEmpty()) {
@@ -175,7 +175,7 @@ public class WoodWorkingMenu extends AbstractContainerMenu {
         final Item item = itemstack1.getItem();
         itemstack = itemstack1.copy();
         if (pIndex == 1) {
-            item.onCraftedBy(itemstack1, pPlayer.level(), pPlayer);
+            item.onCraftedBy(itemstack1, pPlayer);
             if (!this.moveItemStackTo(itemstack1, WoodWorkingMenu.INV_SLOT_START, WoodWorkingMenu.USE_ROW_SLOT_END,
                     true)) {
                 return ItemStack.EMPTY;

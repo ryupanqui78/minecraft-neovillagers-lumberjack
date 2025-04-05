@@ -1,7 +1,7 @@
 {
   "block.neovillagerslumberjack.woodworking_table": "Woodworking table",
   
-  "entity.minecraft.villager.neovillagerslumberjack.lumberjack": "Lumberjack",
+  "entity.neovillagerslumberjack.villager.lumberjack": "Lumberjack",
   
   "screen.container.woodworking": "Woodworking table"
 }
