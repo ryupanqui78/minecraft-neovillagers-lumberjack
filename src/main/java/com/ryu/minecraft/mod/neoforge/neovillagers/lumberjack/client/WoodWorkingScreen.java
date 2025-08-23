@@ -9,7 +9,7 @@ import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.item.crafting.Wood
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -136,15 +136,16 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
     
     @Override
     protected void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
-        pGuiGraphics.blit(RenderType::guiTextured, WoodWorkingScreen.TEXTURE, this.leftPos, this.topPos, 0, 0,
+        pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, WoodWorkingScreen.TEXTURE, this.leftPos, this.topPos, 0, 0,
                 this.imageWidth, this.imageHeight, 256, 256);
         final int k = (int) (39.0F * this.scrollOffs);
         final int posScrollImageX = this.isScrollBarActive() ? 176 : 188;
         final int initialScrollPosX = this.leftPos + WoodWorkingScreen.SCROLLER_START_X;
         final int initialScrollPosY = this.topPos + WoodWorkingScreen.SCROLLER_START_Y;
         
-        pGuiGraphics.blit(RenderType::guiTextured, WoodWorkingScreen.TEXTURE, initialScrollPosX, initialScrollPosY + k,
-                posScrollImageX, 0, WoodWorkingScreen.SCROLLER_WIDTH, WoodWorkingScreen.SCROLLER_HEIGHT, 256, 256);
+        pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, WoodWorkingScreen.TEXTURE, initialScrollPosX,
+                initialScrollPosY + k, posScrollImageX, 0, WoodWorkingScreen.SCROLLER_WIDTH,
+                WoodWorkingScreen.SCROLLER_HEIGHT, 256, 256);
         this.renderButtons(pGuiGraphics, pMouseX, pMouseY);
     }
     
@@ -170,7 +171,7 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
                     && (pMouseY < (posIngredientY + WoodWorkingScreen.RECIPES_IMAGE_SIZE))) {
                 posImageX = 18;
             }
-            pGuiGraphics.blit(RenderType::guiTextured, WoodWorkingScreen.TEXTURE, posIngredientX, posIngredientY,
+            pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, WoodWorkingScreen.TEXTURE, posIngredientX, posIngredientY,
                     posImageX, 166, WoodWorkingScreen.RECIPES_IMAGE_SIZE, WoodWorkingScreen.RECIPES_IMAGE_SIZE, 256,
                     256);
             pGuiGraphics.renderItem(list.get(i).value().getResult(), posIngredientX + 1, posIngredientY + 1);
@@ -196,7 +197,7 @@ public class WoodWorkingScreen extends AbstractContainerScreen<WoodWorkingMenu> 
                 if ((pMouseX >= posIngredientX) && (pMouseY >= posIngredientY)
                         && (pMouseX < (posIngredientX + WoodWorkingScreen.RECIPES_IMAGE_SIZE))
                         && (pMouseY < (posIngredientY + WoodWorkingScreen.RECIPES_IMAGE_SIZE))) {
-                    pGuiGraphics.renderTooltip(this.font, list.get(i).value().getResult(), pMouseX, pMouseY);
+                    pGuiGraphics.setTooltipForNextFrame(this.font, list.get(i).value().getResult(), pMouseX, pMouseY);
                 }
             }
         }
