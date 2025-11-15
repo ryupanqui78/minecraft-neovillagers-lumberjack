@@ -74,7 +74,7 @@ public class WoodWorkingBlock extends Block {
     
     @Override
     protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
-        if (!pLevel.isClientSide && (pPlayer instanceof final ServerPlayer serverPlayer)) {
+        if (!pLevel.isClientSide() && (pPlayer instanceof final ServerPlayer serverPlayer)) {
             serverPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
         }
         return InteractionResult.SUCCESS;

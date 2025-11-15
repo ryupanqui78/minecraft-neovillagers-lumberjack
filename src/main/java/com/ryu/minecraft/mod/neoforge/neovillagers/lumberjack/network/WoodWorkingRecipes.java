@@ -5,7 +5,7 @@ import net.minecraft.world.level.Level;
 public class WoodWorkingRecipes {
     
     public static WoodWorkingRecipeInputs inputs(Level level) {
-        return level.isClientSide ? ClientWoodWorkingRecipes.inputs() : ServerWoodWorkingRecipes.inputs();
+        return level.isClientSide() ? ClientWoodWorkingRecipes.inputs() : ServerWoodWorkingRecipes.inputs();
     }
     
     private WoodWorkingRecipes() {
