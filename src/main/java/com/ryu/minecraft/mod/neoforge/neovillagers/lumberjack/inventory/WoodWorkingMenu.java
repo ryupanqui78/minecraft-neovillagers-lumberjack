@@ -255,6 +255,6 @@ public class WoodWorkingMenu extends AbstractContainerMenu {
     
     @Override
     public boolean stillValid(Player pPlayer) {
-        return AbstractContainerMenu.stillValid(this.access, pPlayer, SetupBlocks.WOODWORKING_TABLE.get());
+        return AbstractContainerMenu.stillValid(this.access, pPlayer, SetupBlocks.WOODWORKING.get());
     }
 }

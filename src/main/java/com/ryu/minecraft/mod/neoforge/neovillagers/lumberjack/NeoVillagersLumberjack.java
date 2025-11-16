@@ -56,7 +56,7 @@ public class NeoVillagersLumberjack {
     
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.accept(SetupBlocks.WOODWORKING_TABLE);
+            event.accept(SetupBlocks.WOODWORKING);
         }
     }
     

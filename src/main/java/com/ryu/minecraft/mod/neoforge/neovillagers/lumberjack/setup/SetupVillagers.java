@@ -26,11 +26,11 @@ public class SetupVillagers {
     
     public static final ResourceKey<VillagerProfession> LUMBERJACK = SetupVillagers.createKey(Lumberjack.ENTITY_NAME);
     
-    public static final DeferredHolder<PoiType, PoiType> LUMBERJACK_POI = SetupVillagers.POI_TYPES.register(
-            Lumberjack.ENTITY_POI_NAME,
-            () -> new PoiType(
-                    ImmutableSet.copyOf(SetupBlocks.WOODWORKING_TABLE.get().getStateDefinition().getPossibleStates()),
-                    1, 1));
+    public static final DeferredHolder<PoiType, PoiType> LUMBERJACK_POI = SetupVillagers.POI_TYPES
+            .register(Lumberjack.ENTITY_POI_NAME,
+                    () -> new PoiType(
+                            ImmutableSet.copyOf(SetupBlocks.WOODWORKING.get().getStateDefinition().getPossibleStates()),
+                            1, 1));
     
     static {
         SetupVillagers.VILLAGER_PROFESSIONS.register(Lumberjack.ENTITY_NAME, SetupVillagers::registerVillager);
