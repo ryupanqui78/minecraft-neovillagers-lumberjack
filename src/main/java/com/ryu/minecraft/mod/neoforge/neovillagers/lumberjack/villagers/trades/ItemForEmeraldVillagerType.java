@@ -2,15 +2,14 @@ package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades;
 
 import java.util.Map;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.VillagerDataHolder;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.world.entity.npc.villager.VillagerDataHolder;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -37,10 +36,9 @@ public class ItemForEmeraldVillagerType implements VillagerTrades.ItemListing {
         this.numberOfItems = pCount;
     }
     
-    @Nullable
     @Override
-    public MerchantOffer getOffer(Entity pTrader, RandomSource pRandom) {
-        if (pTrader instanceof final VillagerDataHolder villagerdataholder) {
+    public @org.jspecify.annotations.Nullable MerchantOffer getOffer(ServerLevel level, Entity entity, RandomSource random) {
+        if (entity instanceof final VillagerDataHolder villagerdataholder) {
             final ResourceKey<VillagerType> resourcekey = villagerdataholder.getVillagerData().type().unwrapKey()
                     .orElse(null);
             if (resourcekey == null) {

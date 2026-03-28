@@ -2,13 +2,16 @@ package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades;
 
 import java.util.Optional;
 
+import org.jspecify.annotations.Nullable;
+
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -34,9 +37,9 @@ public class EnchantedItemForEmeraldsTradeOffer implements VillagerTrades.ItemLi
     }
     
     @Override
-    public MerchantOffer getOffer(Entity trader, RandomSource random) {
+    public @Nullable MerchantOffer getOffer(ServerLevel level, Entity entity, RandomSource random) {
         final int i = 5 + random.nextInt(15);
-        final RegistryAccess registryaccess = trader.level().registryAccess();
+        final RegistryAccess registryaccess = level.registryAccess();
         final Optional<HolderSet.Named<Enchantment>> optional = registryaccess.lookupOrThrow(Registries.ENCHANTMENT)
                 .get(EnchantmentTags.ON_TRADED_EQUIPMENT);
         final ItemStack itemstack = EnchantmentHelper.enchantItem(random, new ItemStack(this.itemSell.getItem()), i,

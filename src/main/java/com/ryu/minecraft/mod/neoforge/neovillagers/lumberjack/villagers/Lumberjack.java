@@ -1,15 +1,22 @@
 package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.NeoVillagersLumberjack;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupVillagers;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades.EmeraldForItemTradeOffer;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades.EnchantedItemForEmeraldsTradeOffer;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades.ItemForEmeraldTradeOffer;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.villagers.trades.ItemForEmeraldVillagerType;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
-import net.minecraft.world.entity.npc.VillagerType;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades.ItemListing;
+import net.minecraft.world.entity.npc.villager.VillagerType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
@@ -17,6 +24,16 @@ public class Lumberjack extends Worker {
     
     public static final String ENTITY_NAME = "lumberjack";
     public static final String ENTITY_POI_NAME = "lumberjack_poi";
+    
+    public static VillagerProfession registerVillager() {
+        final Identifier villagerResource = Identifier.fromNamespaceAndPath(NeoVillagersLumberjack.MODID,
+                Lumberjack.ENTITY_NAME);
+        final Component villager = Component
+                .translatable("entity." + villagerResource.getNamespace() + ".villager." + villagerResource.getPath());
+        return new VillagerProfession(villager, x -> x.is(SetupVillagers.LUMBERJACK_POI.getKey()),
+                x -> x.is(SetupVillagers.LUMBERJACK_POI.getKey()), ImmutableSet.of(), ImmutableSet.of(),
+                SoundEvents.VILLAGER_WORK_FARMER);
+    }
     
     @Override
     protected ItemListing[] getLevel1() {

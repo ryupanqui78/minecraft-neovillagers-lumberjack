@@ -11,8 +11,8 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 
@@ -29,7 +29,7 @@ public record ClientboundWoodWorkingRecipesPayload(List<RecipeHolder<WoodWorking
             ClientboundWoodWorkingRecipesPayload::recipes, ClientboundWoodWorkingRecipesPayload::new);
     
     public static final CustomPacketPayload.Type<ClientboundWoodWorkingRecipesPayload> TYPE_PAYLOAD = new CustomPacketPayload.Type<>(
-            ResourceLocation.fromNamespaceAndPath(NeoVillagersLumberjack.MODID, "woodworking_recipe"));
+            Identifier.fromNamespaceAndPath(NeoVillagersLumberjack.MODID, "woodworking_recipe"));
     
     @Override
     public Type<? extends CustomPacketPayload> type() {
