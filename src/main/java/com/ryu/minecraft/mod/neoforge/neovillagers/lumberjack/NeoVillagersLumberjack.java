@@ -3,13 +3,11 @@ package com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.network.ClientWoodWorkingRecipes;
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.network.ClientboundWoodWorkingRecipesPayload;
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.network.ServerWoodWorkingRecipes;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.network.client.ClientWoodWorkingRecipes;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.network.client.ClientboundWoodWorkingRecipesPayload;
+import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.network.server.ServerWoodWorkingRecipes;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupBlocks;
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupGeneralEvents;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupMenus;
-import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupRecipeSerializer;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupRecipeType;
 import com.ryu.minecraft.mod.neoforge.neovillagers.lumberjack.setup.SetupVillagers;
 
@@ -39,19 +37,18 @@ public class NeoVillagersLumberjack {
         SetupBlocks.ITEMS.register(modEventBus);
         
         SetupMenus.MENUS.register(modEventBus);
-        
-        NeoForge.EVENT_BUS.register(SetupGeneralEvents.class);
-        NeoForge.EVENT_BUS.register(ServerWoodWorkingRecipes.class);
         SetupVillagers.register(modEventBus);
         
-        SetupRecipeType.REGISTER.register(modEventBus);
-        SetupRecipeSerializer.REGISTER.register(modEventBus);
+        NeoForge.EVENT_BUS.addListener(ServerWoodWorkingRecipes::onPlayerLoggedIn);
+        
+        SetupRecipeType.RECIPE_DISPLAYS.register(modEventBus);
+        SetupRecipeType.RECIPE_BOOK_CATEGORIES.register(modEventBus);
+        SetupRecipeType.RECIPE_TYPES.register(modEventBus);
+        SetupRecipeType.RECIPE_SERIALIZERS.register(modEventBus);
         
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::registerPayloadHandlersEvent);
-        
-        NeoForge.EVENT_BUS.addListener(ServerWoodWorkingRecipes::onPlayerLoggedIn);
     }
     
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
